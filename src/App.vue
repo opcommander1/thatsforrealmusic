@@ -5,17 +5,20 @@
       <router-link to="/about">About</router-link> -->
     </div>
     <Navbar />
+    <Home />
     <router-view/>
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
+import Home from '@/components/layout/Home'
 
 export default {
   name: 'App',
   components: {
-    Navbar
+    Navbar,
+    Home
   }
 }
 
