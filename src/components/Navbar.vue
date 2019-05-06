@@ -5,13 +5,13 @@
         <div class="nav-wrapper">
           <a href="#" class="logo black-text">Logo</a> <!--change this to router-->
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">All Lessons</a></li>
+            <li><router-link to="/About">About</router-link></li>
+            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/Alllessons/">All Lessons</router-link></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="#">Beats</a></li>
-            <li><a href="#">Sign In</a></li>
-            <li><a href="#">Sign Up</a></li>
+            <li><router-link to="/Login">Login</router-link></li>
+            <li><router-link to="/Signup">Sign Up</router-link></li>
             <li><a href="#">Logout</a></li>
           </ul>
         </div>
@@ -56,7 +56,7 @@ $(document).ready(function(){
 <style>
 
 body {
-  font-family: 'Roboto Slab', serif
+  font-family: 'Roboto Slab', serif;
 }
 
 nav ul a {
