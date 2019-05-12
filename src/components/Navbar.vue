@@ -6,7 +6,7 @@
           <a href="#" class="logo black-text">Logo</a> <!--change this to router-->
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><router-link to="/About">About</router-link></li>
-            <li><router-link to="/">Home</router-link></li>
+            <li @click="homereload"><router-link to="/">Home</router-link></li>
             <li><router-link to="/Alllessons/">All Lessons</router-link></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="#">Beats</a></li>
@@ -44,6 +44,12 @@ export default {
 
     }
   },
+  methods: {
+    homereload(){
+      document.location.reload(true)
+    }
+
+  }
 }
 
 $(document).ready(function(){
