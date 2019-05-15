@@ -6,10 +6,10 @@
           <a href="#" class="logo black-text">Logo</a> <!--change this to router-->
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><router-link to="/About">About</router-link></li>
-            <li @click="homereload"><router-link to="/">Home</router-link></li>
+            <li @click="reload"><router-link to="/">Home</router-link></li>
             <li><router-link to="/Alllessons/">All Lessons</router-link></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="#">Beats</a></li>
+            <li @click="reload"><router-link to="/Beats">Beats</router-link></li>
             <li><router-link to="/Login">Login</router-link></li>
             <li><router-link to="/Signup">Sign Up</router-link></li>
             <li><a href="#">Logout</a></li>
@@ -20,18 +20,18 @@
     <ul id="dropdown-lessons" class="dropdown-content">
       <li><a href="#">By Keys</a></li>
       <li class="divider"></li>
-      <li><a href="#">C Major</a></li>
-      <li><a href="#">D Flat Major</a></li>
-      <li><a href="#">E Flat Major</a></li>
-      <li><a href="#">E Major</a></li>
-      <li><a href="#">F Major</a></li>
-      <li><a href="#">G Flat Major</a></li>
-      <li><a href="#">F Sharp Major</a></li>
+      <!-- <li><a href="#">C Major</a></li> -->
+      <li><router-link to="/Bykey/DFlat">D Flat Major</router-link></li>
+      <li><router-link to="/Bykey/EFlat">E Flat Major</router-link></li>
+      <!-- <li><a href="#">E Major</a></li> -->
+      <li><router-link to="/Bykey/F">F Major</router-link></li>
+      <li><router-link to="/Bykey/GFlat">G Flat Major</router-link></li>
+      <!-- <li><a href="#">F Sharp Major</a></li>
       <li><a href="#">G Major</a></li>
       <li><a href="#">A Flat Major</a></li>
       <li><a href="#">A Major</a></li>
       <li><a href="#">B Flat Major</a></li>
-      <li><a href="#">B Major</a></li>
+      <li><a href="#">B Major</a></li> -->
     </ul>
   </div>
 </template>
@@ -45,7 +45,7 @@ export default {
     }
   },
   methods: {
-    homereload(){
+    reload(){
       document.location.reload(true)
     }
 

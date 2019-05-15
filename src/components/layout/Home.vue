@@ -11,7 +11,7 @@
         </div>
         <div class="card">
           <div class="card-image">
-            <iframe id="current-vid" src="https://www.youtube.com/embed/AppDg5PavHk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="current-vid" src="http://www.youtube.com/embed/AppDg5PavHk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-content">
               <p>Simple song in the key of E flat. Should be able to master the song within a week.</p>
             </div>

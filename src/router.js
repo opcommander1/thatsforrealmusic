@@ -6,6 +6,8 @@ import Signup from '@/components/layout/Signup.vue'
 import Login from '@/components/layout/Login.vue'
 import Password from '@/components/layout/Password.vue'
 import Alllessons from '@/components/layout/Alllessons.vue'
+import Bykey from '@/components/layout/Bykey.vue'
+import Beats from '@/components/layout/Beats.vue'
 
 Vue.use(Router)
 
@@ -48,6 +50,38 @@ export default new Router({
       name: 'AllLessons',
       component: Alllessons
     },
+
+    {
+      path: '/Beats',
+      name: 'Beats',
+      component: Beats
+    },
+
+    {
+      path: '/Bykey/',
+      name: 'Bykey',
+      component: Bykey,
+        children: [
+          {
+            path: 'DFlat',
+            component: Bykey
+          },
+          {
+            path: 'EFlat',
+            component: Bykey
+          },
+          {
+            path: 'F',
+            component: Bykey
+          },
+          {
+            path: 'GFlat',
+            component: Bykey
+          }
+        ],
+    },
+
+    
   ]
   
 })
