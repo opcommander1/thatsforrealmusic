@@ -2,14 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import PortalVue from 'portal-vue'
-import BootstrapVue from 'bootstrap-vue'
-// import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import Pagination from 'bootstrap-vue/es/components/pagination'
+import mysql from 'mysql'
+// let database = require('../config/config')
 
 
 
-Vue.use(PortalVue, BootstrapVue, Pagination)
+
+Vue.use(PortalVue, mysql)
 
 Vue.config.productionTip = false
 

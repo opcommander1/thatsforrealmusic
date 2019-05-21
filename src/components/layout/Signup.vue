@@ -7,31 +7,36 @@
     <div class="row">
       <div class="col m8 s12 offset-m2">
         <div class="card-panel grey lighten-4 z-depth-3">
-          <form>
+          <form @submit.prevent="addMember">
             <div class="row">
               <div class="input-field col m6 s12">
-                <input type="text" name="fname">
+                <input v-model.lazy="inputBoxChange" type="text" v-model="fname">
                 <label for="fname">First Name:</label>
+                <p v-if="feedbackfname" class="red-text">{{ feedbackfname }}</p>
               </div>
               <div class="input-field col m6 s12">
-                <input type="text" name="lname">
+                <input v-model.lazy="inputBoxChange" type="text" v-model="lname">
                 <label for="lname">Last Name:</label>
+                <p v-if="feedbacklname" class="red-text">{{ feedbacklname }}</p>
               </div>
             </div>
             <div class="row">
               <div class="input-field col m6 s12">
-                <input type="text" name="email">
+                <input v-model.lazy="inputBoxChange" type="text" v-model="email">
                 <label for="email">Enter Email:</label>
+                <p v-if="feedbackemail" class="red-text">{{ feedbackemail }}</p>
               </div>
               <div class="input-field col m6 s12">
-                <input type="text" name="username">
+                <input v-model.lazy="inputBoxChange" type="text" v-model="username">
                 <label for="username">Enter username:</label>
+                <p v-if="feedbackuname" class="red-text">{{ feedbackuname }}</p>
               </div>
             </div>
             <div class="row">
               <div class="input-field col m6 s12">
-                <input type="text" name="password">
+                <input v-model.lazy="inputBoxChange" type="text" v-model="password" min="8">
                 <label for="password">Enter password:</label>
+                <p v-if="feedbackpassword" class="red-text">{{ feedbackpassword }}</p>
               </div>
             </div>
             <div class="row">
@@ -49,13 +54,83 @@
 </template>
 
 <script>
+import {con} from '../../../config/config.js'
+
+
+
 export default {
   name: 'Signup',
   data() {
     return {
-
+      fname: null,
+      lname: null,
+      email: null,
+      username: null,
+      password: null,
+      feedbackfname: null,
+      feedbacklname: null,
+      feedbackemail: null,
+      feedbackuname: null,
+      feedbackpassword: null
     }
-  }
+  },
+  methods: {
+    addMember(){
+      if((this.fname) && (this.lname) && (this.email) && (this.username) && (this.password)) {
+      this.feedbackfname = null
+      this.feedbacklname = null
+      this.feedbackemail = null
+      this.feedbackuname = null
+      this.feedbackpassword = null
+      con.connect((err) => {
+        if(err) throw err
+        con.query('INSERT INTO Signup(first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)',
+        [this.fname, this.lname, this.email, this.username, this.password]
+      ).then((err) => {
+          if(err) throw err
+            this.feedbackfname = null
+            this.feedbacklname = null
+            this.feedbackemail = null
+            this.feedbackuname = null
+            this.feedbackpassword = null
+        }
+      )}
+      )
+      } if(!this.fname) {
+        this.feedbackfname = "Please enter first name"
+      } if(!this.lname) {
+        this.feedbacklname = "Please enter last name"
+      } if(!this.email) {
+        this.feedbackemail = "Please enter email"
+      } if(!this.username) {
+        this.feedbackuname = "Please enter username"
+      } if(!this.password) {
+        this.feedbackpassword = "Please enter password, and password must be greater or equal to 8"
+      }
+    }
+  },
+
+  computed: {
+    inputBoxChange: {
+      get: function(){ 
+        return this.fname     
+      },
+
+      set: function () {
+        if((this.fname) && (this.feedbackfname != null)) {
+         this.feedbackfname = null
+        } else if ((this.lname) && (this.feedbacklname != null)) {
+         this.feedbacklname = null
+        } else if ((this.email) && (this.feedbackemail != null)) {
+         this.feedbackemail = null
+        } else if ((this.username) && (this.feedbackuname != null)) {
+         this.feedbackuname = null
+        } else if ((this.password) && (this.feedbackpassword != null)) {
+         this.feedbackpassword = null
+        }
+    }
+  } 
+}
 }
 </script>
 
