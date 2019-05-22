@@ -54,7 +54,8 @@
 </template>
 
 <script>
-import {con} from '../../../config/config.js'
+// let con = require('../../../../server/modules/config.js')
+import SignupService from '@/services/SignupService'
 
 
 
@@ -75,38 +76,46 @@ export default {
     }
   },
   methods: {
-    addMember(){
-      if((this.fname) && (this.lname) && (this.email) && (this.username) && (this.password)) {
-      this.feedbackfname = null
-      this.feedbacklname = null
-      this.feedbackemail = null
-      this.feedbackuname = null
-      this.feedbackpassword = null
-      con.connect((err) => {
-        if(err) throw err
-        con.query('INSERT INTO Signup(first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)',
-        [this.fname, this.lname, this.email, this.username, this.password]
-      ).then((err) => {
-          if(err) throw err
-            this.feedbackfname = null
-            this.feedbacklname = null
-            this.feedbackemail = null
-            this.feedbackuname = null
-            this.feedbackpassword = null
-        }
-      )}
-      )
-      } if(!this.fname) {
-        this.feedbackfname = "Please enter first name"
-      } if(!this.lname) {
-        this.feedbacklname = "Please enter last name"
-      } if(!this.email) {
-        this.feedbackemail = "Please enter email"
-      } if(!this.username) {
-        this.feedbackuname = "Please enter username"
-      } if(!this.password) {
-        this.feedbackpassword = "Please enter password, and password must be greater or equal to 8"
-      }
+   async addMember(){
+     const response = await SignupService.signup({
+        first_name: this.fname,
+        last_name: this.lname,
+        email: this.email,
+        username: this.username,
+        password: this.password
+      })
+      console.log(response.data)
+      // if((this.fname) && (this.lname) && (this.email) && (this.username) && (this.password)) {
+      // this.feedbackfname = null
+      // this.feedbacklname = null
+      // this.feedbackemail = null
+      // this.feedbackuname = null
+      // this.feedbackpassword = null
+      // con.connect((err) => {
+      //   if(err) throw err
+      //   con.query('INSERT INTO Signup(first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)',
+      //   [this.fname, this.lname, this.email, this.username, this.password]
+      // ).then((err) => {
+      //     if(err) throw err
+      //       this.feedbackfname = null
+      //       this.feedbacklname = null
+      //       this.feedbackemail = null
+      //       this.feedbackuname = null
+      //       this.feedbackpassword = null
+      //   }
+      // )}
+      // )
+      // } if(!this.fname) {
+      //   this.feedbackfname = "Please enter first name"
+      // } if(!this.lname) {
+      //   this.feedbacklname = "Please enter last name"
+      // } if(!this.email) {
+      //   this.feedbackemail = "Please enter email"
+      // } if(!this.username) {
+      //   this.feedbackuname = "Please enter username"
+      // } if(!this.password) {
+      //   this.feedbackpassword = "Please enter password, and password must be greater or equal to 8"
+      // }
     }
   },
 

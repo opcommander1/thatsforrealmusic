@@ -1,0 +1,29 @@
+{
+  "name": "thatsforrealmusic",
+  "version": "1.0.0",
+  "description": "Express mysql backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opcommander1/thatsforrealmusic.git"
+  },
+  "author": "Shereal McNeal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/opcommander1/thatsforrealmusic/issues"
+  },
+  "homepage": "https://github.com/opcommander1/thatsforrealmusic#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
