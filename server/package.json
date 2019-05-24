@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/opcommander1/thatsforrealmusic#readme",
   "dependencies": {
+    "@hapi/joi": "^15.0.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.0",
+    "joi": "^14.3.1",
     "mysql": "^2.17.1"
   },
   "devDependencies": {

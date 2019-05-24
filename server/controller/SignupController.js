@@ -15,15 +15,13 @@ let con = require('../modules/config')
       con.query("SELECT email FROM Signup WHERE email = ?", [req.body.email], (err, result, fields) => {
          console.log(result)
          if (result.length > 0) {
-          res.send({
+          res.status(400).send({
             err: 'This email account is already in use.'
           })
         } else {
           con.query('INSERT INTO Signup (first_name, last_name, email, username, password) VALUES (?)', [data],
          (err, fields) => { 
-          //  res.status(400).send({
-          //   err: 'This email account is already in use.'
-          //  })
+          if(err) throw error
           console.log("1 record added")
           res.send(JSON.stringify(data))
          })
