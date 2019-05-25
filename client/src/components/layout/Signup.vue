@@ -34,14 +34,16 @@
             </div>
             <div class="row">
               <div class="input-field col m6 s12">
-                <input v-model.lazy="inputBoxChange" type="text" v-model="password" min="8">
+                <input v-model.lazy="inputBoxChange" type="password" v-model="password" min="8">
                 <label for="password">Enter password:</label>
-                <p v-if="feedbackpassword" class="red-text">{{ feedbackpassword }}</p>
+                <p v-if="feedbackpassword" class="green-text">{{ feedbackpassword }}</p>
               </div>
             </div>
             <div class="row">
               <div class="col m12 s12 center">
                 <button class="purple lighten-3 btn-large">SUBMIT</button>
+                <div v-html="feedback" class="red-text">{{ feedback }}
+                </div>
               </div>
             </div>
           </form>
@@ -72,11 +74,13 @@ export default {
       feedbacklname: null,
       feedbackemail: null,
       feedbackuname: null,
-      feedbackpassword: null
+      feedbackpassword: "*8 to 32 characters or numeric",
+      feedback: null
     }
   },
   methods: {
    async addMember(){
+     try {
      const response = await SignupService.signup({
         first_name: this.fname,
         last_name: this.lname,
@@ -84,7 +88,10 @@ export default {
         username: this.username,
         password: this.password
       })
-      console.log(response.data)
+     } catch (error) {
+       this.feedback = error.response.data.err
+     }
+    console.log(this.feedback)
       // if((this.fname) && (this.lname) && (this.email) && (this.username) && (this.password)) {
       // this.feedbackfname = null
       // this.feedbacklname = null

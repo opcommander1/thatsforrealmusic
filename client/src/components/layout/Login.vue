@@ -39,13 +39,60 @@
 </template>
 
 <script>
+import SignupService from '@/services/SignupService'
 export default {
 name: 'Login',
 data(){
   return{
-
+      username: 'null',
+      password: 'null',
+      feedback: 'null'
     }
-  }  
+  },
+  methods: {
+   async login(){
+     try {
+     const response = await SignupService.login({
+        username: this.username,
+        password: this.password
+      })
+     } catch (error) {
+       this.feedback = error.response.data.err
+     }
+    console.log(this.feedback)
+      // if((this.fname) && (this.lname) && (this.email) && (this.username) && (this.password)) {
+      // this.feedbackfname = null
+      // this.feedbacklname = null
+      // this.feedbackemail = null
+      // this.feedbackuname = null
+      // this.feedbackpassword = null
+      // con.connect((err) => {
+      //   if(err) throw err
+      //   con.query('INSERT INTO Signup(first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)',
+      //   [this.fname, this.lname, this.email, this.username, this.password]
+      // ).then((err) => {
+      //     if(err) throw err
+      //       this.feedbackfname = null
+      //       this.feedbacklname = null
+      //       this.feedbackemail = null
+      //       this.feedbackuname = null
+      //       this.feedbackpassword = null
+      //   }
+      // )}
+      // )
+      // } if(!this.fname) {
+      //   this.feedbackfname = "Please enter first name"
+      // } if(!this.lname) {
+      //   this.feedbacklname = "Please enter last name"
+      // } if(!this.email) {
+      //   this.feedbackemail = "Please enter email"
+      // } if(!this.username) {
+      //   this.feedbackuname = "Please enter username"
+      // } if(!this.password) {
+      //   this.feedbackpassword = "Please enter password, and password must be greater or equal to 8"
+      // }
+    }
+  },  
 }
 </script>
 
