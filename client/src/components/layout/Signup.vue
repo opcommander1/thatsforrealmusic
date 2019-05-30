@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col m8 s12 offset-m2">
         <div class="card-panel grey lighten-4 z-depth-3">
-          <form @submit.prevent="addMember">
+          <form @submit.prevent="addMember" autocomplete="off">
             <div class="row">
               <div class="input-field col m6 s12">
                 <input v-model.lazy="inputBoxChange" type="text" v-model="fname">
@@ -34,7 +34,7 @@
             </div>
             <div class="row">
               <div class="input-field col m6 s12">
-                <input v-model.lazy="inputBoxChange" type="password" v-model="password" min="8">
+                <input v-model.lazy="inputBoxChange" type="password" v-model="password" autocomplete="new-password">
                 <label for="password">Enter password:</label>
                 <p v-if="feedbackpassword" class="green-text">{{ feedbackpassword }}</p>
               </div>
@@ -88,6 +88,7 @@ export default {
         username: this.username,
         password: this.password
       })
+      this.$router.push({ name: 'Login' })
      } catch (error) {
        this.feedback = error.response.data.err
      }
