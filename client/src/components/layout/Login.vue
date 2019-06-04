@@ -46,8 +46,9 @@ name: 'Login',
 data(){
   return{
       username: null,
-      password: null,
-      feedback: null
+      password: "",
+      feedback: null, 
+      logincounter: 0
     }
   },
   methods: {
@@ -57,12 +58,19 @@ data(){
         username: this.username,
         password: this.password
       })
-      this.$router.push({ name: 'Home' })
+      this.$router.push({ name: 'Home'})
       console.log(response)
+      this.$store.dispatch('setToken', response.data.token)
+      this.$store.dispatch('setUser', response.data.user)
+      localStorage.setItem('currentUser', JSON.stringify({token: response.data.token, user: response.data.user.username}))
      } catch (error) {
        this.feedback = error.response.data.err
      }
     console.log(this.feedback)
+    let logincounter = 0
+    logincounter++
+      localStorage.setItem('logincounter', logincounter)
+      console.log(logincounter)
       // if((this.fname) && (this.lname) && (this.email) && (this.username) && (this.password)) {
       // this.feedbackfname = null
       // this.feedbacklname = null

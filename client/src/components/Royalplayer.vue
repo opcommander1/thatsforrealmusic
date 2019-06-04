@@ -1,4 +1,5 @@
 <template>
+<div class="Royalplayer">
    <div class="row">
       <div class="col s12 m12">
         <ul id="playlist1" style="display:none;">
@@ -25,17 +26,65 @@
         </ul>
       </div>
       </div>
+      <div class="row">
+        <div v-if="showButton == true && counter < 2"  class="col s12 m12 center">
+          <button class="waves-effect waves-light btn-large" @click="royalplayer">Click for Royal Audio Player</button>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
+  name: 'Royalplayer',
   data(){
     return {
-      id: 'myDiv'
+      id: 'myDiv',
+      counter: localStorage.getItem('logincounter'),
+      showButton: true
+    }
+  },
+  methods: {
+    royalplayer() {
+      let logincounter = 0
+      logincounter = localStorage.getItem('logincounter')
+      logincounter++
+      this.counter = logincounter
+      localStorage.setItem('logincounter', logincounter)
+
+      if (this.$store.state.isUserLoggedIn == true && logincounter < 3) {
+        localStorage.setItem('showButton', false)
+        this.showButton = localStorage.getItem('showButton')
+      }
+      // localStorage.setItem('showButton', false)
+      // this.showButton = localStorage.getItem('showButton')
+      // this.showButton = showButton2
+      // this.showButton = false
+      // window.location.reload(true)
+      // this.$store.dispatch('setShowButton', false)
+      // console.log(this.$store.state.showButton)
+      console.log(this.showButton)
+      // if (this.$store.state.isLoggedIn) {
+      //   this.$store.dispatch('setCounter', 1)
+      //   this.showButton = false
+      //   console.log(this.$store.state.counter)
+      //   window.location.reload(true)
+      // } else {
+      //   window.location.reload(true)
+      //   console.log(this.showButton)
+      // }
+    },
+    sButton(){
+      //Check to see if user is logged in, if not the royalplayer
+      //button won't display
+      if (this.$store.state.isUserLoggedIn == false){
+        this.showButton = false
+      }
     }
   },
   created(){
+    this.sButton()
     if(this.id="myDiv"){
       FWDRAPUtils.onReady(function(){
           new FWDRAP({
@@ -173,7 +222,7 @@ export default {
               popupWindowHeight:423
           })
       })}
-  }
+  },
 }
 </script>
 

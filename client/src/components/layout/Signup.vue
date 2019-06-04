@@ -89,6 +89,8 @@ export default {
         password: this.password
       })
       this.$router.push({ name: 'Login' })
+      this.$store.dispatch('setToken', response.data.token)
+      this.$store.dispatch('setUser', response.data.user)
      } catch (error) {
        this.feedback = error.response.data.err
      }

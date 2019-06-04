@@ -10,9 +10,9 @@
             <li><router-link to="/Alllessons/">All Lessons</router-link></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
             <li @click="reload"><router-link to="/Beats">Beats</router-link></li>
-            <li><router-link to="/Login">Login</router-link></li>
-            <li><router-link to="/Signup">Sign Up</router-link></li>
-            <li><a href="#">Logout</a></li>
+            <li v-if="!$store.state.isUserLoggedIn"><router-link to="/Login">Login</router-link></li>
+            <li v-if="!$store.state.isUserLoggedIn"><router-link to="/Signup">Sign Up</router-link></li>
+            <li v-if="$store.state.isUserLoggedIn" @click="logout"><a href="#">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -45,10 +45,16 @@ export default {
     }
   },
   methods: {
-    reload(){
-      document.location.reload(true)
+    reload() {
+      window.location.reload(true)
+    },
+    logout() {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push({ name: 'Login' })
+      localStorage.removeItem('currentUser')
+      localStorage.setItem('logincounter', 0)
     }
-
   }
 }
 

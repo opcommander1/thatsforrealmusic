@@ -66,12 +66,16 @@ function jwtSignUser(user) {
 
     try {
       con.query("SELECT id, username, password FROM Signup WHERE username = ?", [loginData[0]], (err, result, fields) => { 
-        // console.log(result)
-        if(result.length <= 0) {
+        console.log(result)
+        if(result.length <= 0 || undefined == result.length) {
           res.status(403).send({
             err: 'Username is incorrect'
           })
-        } else {
+        } else if (loginData[1].length <= 0) {
+            res.status(403).send({
+              err: 'Password is incorrect'
+            })
+        } else if (loginData[1].length > 0){
           bcrypt.compare(loginData[1], result[0].password, function(err, results) {
             if(results == true){
               const userJson = (JSON.stringify(result[0]))
@@ -84,11 +88,12 @@ function jwtSignUser(user) {
               },
             token: jwtSignUser(userJson)
           })
+          
             // } else {
             //   console.log('Passwords')
             } else {
               res.status(403).send({
-                err: 'Password incorrect'
+                err: 'Password is incorrect'
               })
             }
           })

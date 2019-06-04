@@ -88,7 +88,31 @@ export default {
       },
       ]
     }
-  }
+  },
+  beforeMount() {
+    // let logincounter = 0
+    // localStorage.setItem('logincounter', logincounter)
+    let counter = localStorage.getItem('logincounter')
+    let currentUser = null
+    if (this.$store.state.isUserLoggedIn == false && counter > 0) {
+      currentUser = localStorage.getItem('currentUser')
+      let currentUserInfo = JSON.parse(currentUser)
+      this.$store.dispatch('setToken', currentUserInfo.token)
+      this.$store.dispatch('setUser', currentUserInfo.user),localStorage.setItem('showButton',false)
+      console.log(currentUserInfo)
+      } else {
+        console.log('Not Login')
+      }
+    },
+    // created() {
+    //   let test = this.$store.state.isUserLoggedIn
+    //   if (test) {
+    //     localStorage.setItem('showButton', JSON.stringify("true"))
+    //   } else {
+    //     localStorage.setItem('showButton', JSON.stringify("false"))
+    //     console.log(test)
+    //   }
+    // }
 }
 
 </script>
