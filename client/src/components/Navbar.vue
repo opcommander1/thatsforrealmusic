@@ -9,6 +9,7 @@
             <li @click="reload"><router-link to="/">Home</router-link></li>
             <li><router-link to="/Alllessons/">All Lessons</router-link></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
+            <!-- Reload the page in order for Royal Player to Appear -->
             <li @click="reload"><router-link to="/Beats">Beats</router-link></li>
             <li v-if="!$store.state.isUserLoggedIn"><router-link to="/Login">Login</router-link></li>
             <li v-if="!$store.state.isUserLoggedIn"><router-link to="/Signup">Sign Up</router-link></li>
@@ -19,6 +20,7 @@
     </nav>
     <ul id="dropdown-lessons" class="dropdown-content">
       <li><a href="#">By Keys</a></li>
+      <!-- Route lessons by keys -->
       <li class="divider"></li>
       <!-- <li><a href="#">C Major</a></li> -->
       <li><router-link to="/Bykey/DFlat">D Flat Major</router-link></li>
@@ -46,9 +48,11 @@ export default {
   },
   methods: {
     reload() {
+      //reload the Beats page to show the Royal Player
       window.location.reload(true)
     },
     logout() {
+      //Log out user and remove global state and remove local storage
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
       this.$router.push({ name: 'Login' })

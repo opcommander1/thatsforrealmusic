@@ -2,7 +2,8 @@
   <div class="All-Lessons">
     <div class="container">
       <ul v-if="Lessons">
-        <li v-for="(lesson, index) in Lessons" :key="index" class="list-group" v-bind:id="currentPageid">
+        <li v-for="(lesson, index) in Lessons" :key="index" class="list-group">
+          <!-- Match lesson key and show lesson by key on each page -->
           <div v-show="lesson.key == $route.path">
           <div class="row">
             <div class="col s12 m8 offset-m2">
@@ -38,6 +39,7 @@ export default {
     }
   },
 }
+// v-bind:id="currentPageid
 </script>
 
 <style>

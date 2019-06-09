@@ -80,6 +80,7 @@ export default {
   },
   methods: {
    async addMember(){
+     //Gets response from client server and add it input data
      try {
      const response = await SignupService.signup({
         first_name: this.fname,
@@ -88,7 +89,9 @@ export default {
         username: this.username,
         password: this.password
       })
+      //send member to Login
       this.$router.push({ name: 'Login' })
+      //Set global state to keep user logged in 
       this.$store.dispatch('setToken', response.data.token)
       this.$store.dispatch('setUser', response.data.user)
      } catch (error) {

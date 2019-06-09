@@ -8,6 +8,10 @@ export default {
   login (credentials) {
     return Api().post('login', credentials)
   },
+
+  updatepassword (credentials) {
+    return Api().put('passwordreset', credentials)
+  }
 }
 
 // SignupService.signup({

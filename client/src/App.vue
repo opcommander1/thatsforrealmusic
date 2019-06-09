@@ -90,10 +90,12 @@ export default {
     }
   },
   beforeMount() {
-    // let logincounter = 0
-    // localStorage.setItem('logincounter', logincounter)
+    //Gets local storage counter
     let counter = localStorage.getItem('logincounter')
     let currentUser = null
+
+    //Global state will change to false if a page is reloaded or user close the tab. This statement will only activate when user
+    //logged in and the above action is executed. Therefore keep the user logged in without creditial.
     if (this.$store.state.isUserLoggedIn == false && counter > 0) {
       currentUser = localStorage.getItem('currentUser')
       let currentUserInfo = JSON.parse(currentUser)

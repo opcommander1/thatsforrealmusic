@@ -14,7 +14,7 @@
                 <label for="username">Enter username:</label>
               </div>
               <div class="input-field col m6 s12">
-                <input type="text" v-model="password">
+                <input type="password" v-model="password" autocomplete="new-password">
                 <label for="password">Enter password:</label>
               </div>
             </div>
@@ -67,8 +67,9 @@ data(){
        this.feedback = error.response.data.err
      }
     console.log(this.feedback)
-    let logincounter = 0
-    logincounter++
+      localStorage.removeItem('counter')
+      let logincounter = 0
+      logincounter++
       localStorage.setItem('logincounter', logincounter)
       console.log(logincounter)
       // if((this.fname) && (this.lname) && (this.email) && (this.username) && (this.password)) {
