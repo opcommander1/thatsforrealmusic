@@ -1,9 +1,9 @@
 <template>
 <div class="HOME">
-  <div class="container">
-    <div class="row">
-      <img src="../../assets/forrealtitleone.png" alt="That's ForReal Music"   class="title col s12 m12">
+  <div class="row">
+      <img src="../../assets/forrealtitlelogo.png" alt="That's ForReal Music"   class="title col s12 m12">
     </div>
+  <div class="container">
     <div class="row">
       <div class="col s12 m6">
         <div class="current-title">
@@ -75,33 +75,29 @@
       </div>
     </div>
     <Royalplayer />
-    <!-- <div class="row">
-      <div class="col s12 m12">
-        <ul id="playlist1" style="display:none;">
-            <li data-path="content/mp3/02.mp3" data-thumbpath="content/thumbnails/small2.jpg" data-downloadable="no" data-duration="04:41">
-            <p><span style="font-weight:bold;">MACKLEMORE & RYAN LEWIS vs MAJOR LAZER</span> -  can't hold us remix (ft swappi and 1st klase)</p>
-          </li>
-          <li data-path="content/mp3/03.mp3" data-thumbpath="content/thumbnails/small3.jpg" data-downloadable="no" data-duration="03:49">
-              <p><span style="font-weight:bold;">Crush ft. Camden Cox</span> - Could This Be Real (Luminox Remix)</p>
-          </li>
-          <li data-path="content/mp3/04.mp3" data-thumbpath="content/thumbnails/small4.jpg"  data-duration="04:19">
-              <p><span style="font-weight:bold;">DJ SLiiNK X DiRTY SOUTH JOE</span> - CERTiFiED TRAP TOUR OFFiCiAL MiX</p>
-          </li>
-        <li data-path="content/mp3/05.mp3" data-thumbpath="content/thumbnails/small5.jpg" data-downloadable="no" data-duration="03:54">
-            <p><span style="font-weight:bold;">Knife Party</span> - LRAD (CRNKN FESTIE RMX)</p>
-        </li>
-      </ul>
-      <div id="myDiv" class="col m12 s12">
-         <ul id="playlists" style="display:none;">
-          <li data-source="playlist1" data-thumbnail-path="content/thumbnails/large1.jpg">
-          <p class="minimalDarkCategoriesTitle"><span class="bold">Title: </span>My playlist 1</p>
-          <p class="minimalDarkCategoriesType"><span class="bold">Type: </span><span class="minimalDarkCategoriesTypeIn">HTML</span></p>
-          <p class="minimalDarkCategoriesDescription"><span class="bold">Description: </span>This playlist is created using html elements.</p>
-         </li>
-        </ul>
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <div class="title-donation">
+          <h2 class="purple-text lighten-3" style="text-align:center;">DONATE</h2>
+        </div>
+        <div class="card Large">
+          <div class="card-image">
+            <img src="../../assets/fulllogo.png" alt="That's For Real Logo">
+            <div class="card-content">
+              <p>You can make donation to this site with any amount. Your donation will help with the site expenses. You can donate by clicking on the link below.  <br><br>Thank You for your Donation!</p>
+            </div>
+            <div class="card-action">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input type="hidden" name="hosted_button_id" value="KXJGRFVQ3TBPY" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
-    </div> -->
+    </div>
   </div>
 </div>
 </template>
@@ -125,10 +121,13 @@ export default {
 </script>
 
 <style>
+
 .row .title {
-height: 280px;
-padding-top: 20px;
+height: 400px;
+
 padding-bottom: 10px;
+padding-left: 0px;
+padding-right: 0px;
 
 }
 

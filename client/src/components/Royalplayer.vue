@@ -67,7 +67,7 @@ export default {
 
     },
     sButton(){
-      //Check to see if user is logged in, if not the royalplayer
+      //Check to see if user is logged in, if not, the royalplayer
       //button won't display
       if (this.$store.state.isUserLoggedIn == false){
         this.showButton = false

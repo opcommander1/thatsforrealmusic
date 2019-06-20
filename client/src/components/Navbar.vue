@@ -3,7 +3,8 @@
     <nav class="purple lighten-3">
       <div class="container">
         <div class="nav-wrapper">
-          <a href="#" class="logo black-text">Logo</a> <!--change this to router-->
+          <img src="../assets/forrealmusiclogo.png" alt="">
+          <!-- <a href="" class="logo black-text">Logo</a> change this to router -->
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><router-link to="/About">About</router-link></li>
             <li @click="reload"><router-link to="/">Home</router-link></li>
@@ -11,9 +12,13 @@
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
             <!-- Reload the page in order for Royal Player to Appear -->
             <li @click="reload"><router-link to="/Beats">Beats</router-link></li>
+            <!-- show navbar menu items if state variable exist -->
             <li v-if="!$store.state.isUserLoggedIn"><router-link to="/Login">Login</router-link></li>
             <li v-if="!$store.state.isUserLoggedIn"><router-link to="/Signup">Sign Up</router-link></li>
             <li v-if="$store.state.isUserLoggedIn" @click="logout"><a href="#">Logout</a></li>
+            <li v-if="$store.state.user === 'Guest'" class="black-text">{{ $store.state.user }}</li>
+            <li v-else-if="$store.state.user.username" class="black-text">{{ $store.state.user.username }}</li>
+            <li v-else-if="(localusername)" class="black-text">{{ localusername }}</li>
           </ul>
         </div>
       </div>
@@ -39,11 +44,13 @@
 </template>
 
 <script>
+import AppVue from '../App.vue';
 export default {
   name: 'Navbar',
+  props: ['localusername'],
   data(){
     return {
-
+      
     }
   },
   methods: {
@@ -54,12 +61,12 @@ export default {
     logout() {
       //Log out user and remove global state and remove local storage
       this.$store.dispatch('setToken', null)
-      this.$store.dispatch('setUser', null)
+      this.$store.dispatch('setUser', "Guest")
       this.$router.push({ name: 'Login' })
       localStorage.removeItem('currentUser')
       localStorage.setItem('logincounter', 0)
-    }
-  }
+    },
+  },
 }
 
 $(document).ready(function(){
@@ -73,6 +80,16 @@ $(document).ready(function(){
 
 body {
   font-family: 'Roboto Slab', serif;
+}
+
+nav {
+  height: 100px;
+}
+
+nav .nav-wrapper img {
+  padding-top: 5px;
+  width: 180px;
+  height: 90px;
 }
 
 nav ul a {

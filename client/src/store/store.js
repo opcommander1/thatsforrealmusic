@@ -7,7 +7,7 @@ export default new Vuex.Store({
   strict: true,
   state: {
     token: null,
-    user: null,
+    user: "Guest",
     isUserLoggedIn: false,
     showButton: true
   },

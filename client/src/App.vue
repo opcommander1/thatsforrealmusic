@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar v-bind:localusername="localusername"/>
     <router-view v-bind:Lessons="Lessons" />
   </div>
 </template>
@@ -16,6 +16,9 @@ export default {
   },
   data(){
     return {
+      //prop variable pass to navbar component
+      localusername: null,
+      
       Lessons: [{
         index: 1,
         pageId: 1,
@@ -94,6 +97,10 @@ export default {
     let counter = localStorage.getItem('logincounter')
     let currentUser = null
 
+    //Gets local storage current user
+    let usernameobj = localStorage.getItem('currentUser')
+    usernameobj = JSON.parse(usernameobj)
+
     //Global state will change to false if a page is reloaded or user close the tab. This statement will only activate when user
     //logged in and the above action is executed. Therefore keep the user logged in without creditial.
     if (this.$store.state.isUserLoggedIn == false && counter > 0) {
@@ -104,6 +111,17 @@ export default {
       console.log(currentUserInfo)
       } else {
         console.log('Not Login')
+      }
+    
+    //Check if the localstorage user exist, if so the prop variable
+    //localusername is pass to the navbar component.  This 
+    //alleviate any typeof null errors 
+      if((typeof usernameobj !== null && counter > 0)){
+        this.localusername = usernameobj.user
+        console.log('This is not null')
+      } else {
+        this.localusername = null
+        console.log('This is null ' + counter) 
       }
     },
     // created() {
