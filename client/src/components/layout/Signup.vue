@@ -10,7 +10,7 @@
           <form @submit.prevent="addMember" autocomplete="off">
             <div class="row">
               <div class="input-field col m6 s12">
-                <input v-model.lazy="inputBoxChange" type="text" v-model="fname">
+                <input v-model.lazy="inputBoxChange" type="text" v-model="fname" autofocus>
                 <label for="fname">First Name:</label>
                 <p v-if="feedbackfname" class="red-text">{{ feedbackfname }}</p>
               </div>

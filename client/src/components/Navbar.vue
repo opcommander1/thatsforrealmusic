@@ -3,8 +3,8 @@
     <nav class="purple lighten-3">
       <div class="container">
         <div class="nav-wrapper">
-          <img src="../assets/forrealmusiclogo.png" alt="">
-          <!-- <a href="" class="logo black-text">Logo</a> change this to router -->
+          <img src="../assets/forrealmusiclogo.png" alt="That's For Real Music">
+          <a href="#" data-target="mobile-resp" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><router-link to="/About">About</router-link></li>
             <li @click="reload"><router-link to="/">Home</router-link></li>
@@ -16,6 +16,27 @@
             <li v-if="!$store.state.isUserLoggedIn"><router-link to="/Login">Login</router-link></li>
             <li v-if="!$store.state.isUserLoggedIn"><router-link to="/Signup">Sign Up</router-link></li>
             <li v-if="$store.state.isUserLoggedIn" @click="logout"><a href="#">Logout</a></li>
+            <li v-if="$store.state.user === 'Guest'" class="black-text">{{ $store.state.user }}</li>
+            <li v-else-if="$store.state.user.username" class="black-text">{{ $store.state.user.username }}</li>
+            <li v-else-if="(localusername)" class="black-text">{{ localusername }}</li>
+          </ul>
+          
+           <!-- Mobile Responsiveness -->
+          <ul id="mobile-resp" class="sidenav">
+            <li class="sidenav-close"><router-link to="/About">About</router-link></li>
+            <li class="sidenav-close" @click="reload"><router-link to="/">Home</router-link></li>
+            <li class="sidenav-close"><router-link to="/Alllessons/">All Lessons</router-link></li>
+            <li class="sidenav-close"><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
+            <!-- Reload the page in order for Royal Player to Appear -->
+            <li @click="reload"><router-link to="/Beats">Beats</router-link></li>
+            <!-- show navbar menu items if state variable exist -->
+            <li v-if="!$store.state.isUserLoggedIn" class="sidenav-close"><router-link to="/Login">Login</router-link></li>
+            <li v-if="!$store.state.isUserLoggedIn"><router-link to="/Signup" class="sidenav-close">Sign Up</router-link></li>
+            <li v-if="$store.state.isUserLoggedIn" @click="logout"><a href="#">Logout</a></li>
+          </ul>
+
+          <!--Show username on navbar instead of collaspable tab -->
+          <ul id="nav-username" class="right hide-on-large-only">
             <li v-if="$store.state.user === 'Guest'" class="black-text">{{ $store.state.user }}</li>
             <li v-else-if="$store.state.user.username" class="black-text">{{ $store.state.user.username }}</li>
             <li v-else-if="(localusername)" class="black-text">{{ localusername }}</li>
@@ -74,6 +95,10 @@ $(document).ready(function(){
     hover: true
   });
 });
+
+$(document).ready(function(){
+  $('.sidenav').sidenav();
+});
 </script>
 
 <style>
@@ -101,10 +126,18 @@ nav ul a {
   width: 80%;
 }
 
+#nav-mobile li a{
+  margin-right: -4px;
+}
+
 .dropdown-content li a {
   font-size: 1.0em;
   font-weight: 300;
   color: #c51162;
+}
+
+#mobile-resp li a{
+  font-weight: 300;
 }
 
 </style>

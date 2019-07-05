@@ -10,7 +10,7 @@
           <form @submit.prevent="login">
             <div class="row">
               <div class="input-field col m6 s12">
-                <input type="text" v-model="username">
+                <input type="text" v-model="username" autofocus>
                 <label for="username">Enter username:</label>
               </div>
               <div class="input-field col m6 s12">
