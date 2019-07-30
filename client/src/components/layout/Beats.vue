@@ -5,16 +5,16 @@
         <div class="row">
           <div class="col s12 m12 royalplayer">
             <ul id="beatlists1" style="display:none;">
-                <li data-path="content/mp3/02.mp3" data-thumbpath="content/thumbnails/small2.jpg" data-downloadable="no" data-duration="04:41">
+                <li data-path="content/mp3/02.mp3"  data-downloadable="no" data-duration="04:41">
                 <p><span style="font-weight:bold;">MACKLEMORE & RYAN LEWIS vs MAJOR LAZER</span> -  can't hold us remix (ft swappi and 1st klase)</p>
               </li>
-              <li data-path="content/mp3/03.mp3" data-thumbpath="content/thumbnails/small3.jpg" data-downloadable="no" data-duration="03:49">
+              <li data-path="content/mp3/03.mp3"  data-downloadable="no" data-duration="03:49">
                   <p><span style="font-weight:bold;">Crush ft. Camden Cox</span> - Could This Be Real (Luminox Remix)</p>
               </li>
-              <li data-path="content/mp3/04.mp3" data-thumbpath="content/thumbnails/small4.jpg"  data-duration="04:19">
+              <li data-path="content/mp3/04.mp3"   data-duration="04:19">
                   <p><span style="font-weight:bold;">DJ SLiiNK X DiRTY SOUTH JOE</span> - CERTiFiED TRAP TOUR OFFiCiAL MiX</p>
               </li>
-            <li data-path="content/mp3/05.mp3" data-thumbpath="content/thumbnails/small5.jpg" data-downloadable="no" data-duration="03:54">
+            <li data-path="content/mp3/05.mp3"  data-downloadable="no" data-duration="03:54">
                 <p><span style="font-weight:bold;">Knife Party</span> - LRAD (CRNKN FESTIE RMX)</p>
             </li>
           </ul>
@@ -34,7 +34,7 @@
             <div class="card info">
               <div class="card-content black">
                 <span class="card-title green-text">INFO</span>
-                <p class="info green-text">This section allows you to download a beat for free, when you sign up for free to be a member.  Use the beat to add your own lyrics, or change up the style of the beat in your own software.  You can hear the beat first before downloading, above is the Beat Player.</p>
+                <p class="info green-text">This section allows you to purchase beats through paypal debit and credit options. Select the dropdown menu below on the specific beat, it will display the different leasing options.  You can hear the beat first before downloading, above is the Beat Player. <br>Thank You For Your Time With "That's For Real Music".</p>
               </div>
             </div>
           </div>
@@ -42,13 +42,11 @@
         <div class="row">
           <ul v-if="Beats">
             <li v-for="(beat, id) in Beats" :key="id">
-              <div class="col m4 s12">
+              <div class="col m3 s12">
                 <div class="card small beat-section">
-                  <div class="card-image">
-                    <img v-bind:src="beat.img" alt="">
-                  </div>
                   <div class="card-content title">
                     <p>{{ beat.title }}</p>
+                    <p>{{ beat.license }}</p>
                   </div>
                   <div class="card-action" id="download-link">
                     <a v-bind:href="beat.download" download>Download</a>
@@ -74,12 +72,14 @@ export default {
         id: 1,
         img: "/img/beatimage.ff5f5e45.jpg",
         title: "West Coast Grove",
+        license: "Lease",
         download: "#"
         },
         {
         id: 2,
         img: "/img/beatimage.ff5f5e45.jpg",
         title: "East Coast Grove",
+        license: "Lease",
         download: "#"
         },
       ]
@@ -126,7 +126,7 @@ export default {
               showShuffleButton:"yes",
               showDownloadMp3Button:"yes",
               showBuyButton:"no",
-              showShareButton:"yes",
+              showShareButton:"no",
               disableAudioScrubbar:"no",
               expandBackground:"no",
               titleColor:"#ce93d8",
@@ -151,10 +151,10 @@ export default {
               scrubberOffsetBottom:10,
               equlizerOffsetLeft:1,
               //playlists window settings+
-              showPlaylistsSearchInput:"yes",
-              usePlaylistsSelectBox:"yes",
+              showPlaylistsSearchInput:"no",
+              usePlaylistsSelectBox:"no",
               showPlaylistsSelectBoxNumbers:"yes",
-              showPlaylistsButtonAndPlaylists:"yes",
+              showPlaylistsButtonAndPlaylists:"no",
               showPlaylistsByDefault:"no",
               randomizePlaylist:"no",
               thumbnailSelectedType:"opacity",
@@ -258,13 +258,14 @@ export default {
 }
 
 .card.small.beat-section {
+  height: 150px;
   -webkit-box-shadow: 0px 0px 12px 0px rgba(157,216,147,1);
   -moz-box-shadow: 0px 0px 12px 0px rgba(157,216,147,1);
   box-shadow: 0px 0px 12px 0px rgba(157,216,147,1);
 }
 
 .card .card-content.title p {
-  font-size: 1.3em;
+  font-size: 1.1em;
   text-align: center;
 }
 

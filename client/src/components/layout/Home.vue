@@ -53,7 +53,7 @@
           </div>
           <div class="card-stacked">
             <div class="card-content beat-content">
-              <p>Yes that's right, Beats for Free when you signup as a member with That's ForReal Music.  Download the beat to your own lyrics. Even change the beat to your own liking by importing the files to your DAW. Once you signup the links for the downloads will appear.</p>
+              <p>Yes that's right, Get a free feature mp3 beat when you signup as a member with That's For Real Music.  Download and add your own lyrics on the beat. Once you signup, the link for the download will appear under the "Feature Beat" info section.</p>
             </div>
           </div>
         </div>
@@ -68,12 +68,113 @@
             <p>Listed below is a downloadable link, which contains all of the subsequent files for the beat.  To see all beats click on the link below "See All Beats".  Remember you must signup for free to see the links for downloads. You can play the feature beat below in the music player before downloading.</p>
           </div>
           <div class="card-action" id="feature-link">
-            <a href="#">Smooth Beat</a>
-            <a href="#">See All Beats</a>
+            <a v-bind:href="freebeat" download>Free Beat</a>
+            <!-- Reload the page in order for Royal Player to Appear -->
+            <span @click="reload"><router-link to="/Beats">See All Beats</router-link></span>
           </div>
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col s12 m6">
+          <div class="card purple lighten-3">
+            <div class="card-content Pricing-info">
+              <span class="card-title">Beat Pricing</span>
+              <ul>
+                <li><b>Leasing Beats</b> - Nonexclusive rights
+                  <strong>Must give credit "Prod. by That's For Real Music"</strong> That's For Real Music maintains full ownership of the instrumental</li>
+                <li><strong>MP3:</strong> $15</li>
+                <li><strong>MP3 and 24-bit Wav file:</strong> $30</li><br>
+                <li><strong>Exclusive Rights Beats</strong> - Unlimited rights, one owner, no previous leases, and removed from site when purchase.</li>
+                <li><strong>MP3, 24-bit Wav file and Track Out (Instrumental Stems seperated out):</strong> Price vary</li>
+              </ul>
+            </div>
+            <div class="card-action" id="feature-link">
+              <!-- Reload the page in order for Royal Player to Appear -->
+              <span @click="reload"><router-link to="/Beats">See All Beats</router-link></span>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card green lighten-3">
+            <div class="card-content Contract-info">
+              <span class="card-title">Contract</span>
+              <ul>
+                <li>All leases and exclusive contract will be signed and attach when purchasing a beat. Click the contract button below and it will list the services for each contract.</li>
+              </ul>
+              
+              <!-- MP3 Leasing Contract Modal -->
+              <a style="height:100%" class="purple lighten-3 btn modal-trigger" href="#mp3" data-target="mp3">MP3 Leasing Contract</a><br><br>
+              <div id="mp3" class="modal">
+                <img src="../../assets/forrealtitlelogo.png" alt="That's ForReal Music">
+                <div class="modal-content">
+                  <ul>
+                    <li><strong>MP3 Leasing</strong></li><br>
+                    <li>Sell up to 2500 units</li>
+                    <li>Unlimited - Free Downloads</li>
+                    <li>Paid Performances - restricted</li>
+                    <li>1 - Music Videos</li>
+                    <li>Unlimited - Audio Streams</li>
+                    <li>Unlimited - Video Streams</li>
+                    <li>Broadcasting Rights</li>
+                    <li>1 - Radio Stations</li>
+                    <li>Paid Monetization - restricted</li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close purple lighten-3 btn-flat">Close</a>
+                </div>
+              </div>
+
+              <!-- MP3 and WAV Leasing Contract Modal -->
+              <a style="height:100%" class="purple lighten-3 btn modal-trigger" href="#mp3andwav" data-target="mp3andwav">MP3 and WAV Leasing Contract</a><br><br>
+              <div id="mp3andwav" class="modal">
+                <img src="../../assets/forrealtitlelogo.png" alt="That's ForReal Music">
+                <div class="modal-content">
+                  <ul>
+                    <li><strong>MP3 and WAV Leasing</strong></li><br>
+                    <li>Sell up to 20000 units</li>
+                    <li>Unlimited - Free Downloads</li>
+                    <li>Unlimited - Paid Performances - </li>
+                    <li>1 - Music Videos</li>
+                    <li>Unlimited - Audio Streams</li>
+                    <li>Unlimited - Video Streams</li>
+                    <li>Broadcasting Rights</li>
+                    <li>12 - Radio Stations</li>
+                    <li>Monetization - up to 100,000 views(each) before renewing leasing</li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close purple lighten-3 btn-flat">Close</a>
+                </div>
+              </div>
+
+              <!-- Exclusive Contract Modal -->
+              <a style="height:100%" class="purple lighten-3 btn modal-trigger" href="#exclusive" data-target="exclusive"> Exclusive Contract</a>
+              <div id="exclusive" class="modal">
+                <img src="../../assets/forrealtitlelogo.png" alt="That's ForReal Music">
+                <div class="modal-content">
+                  <ul>
+                    <li><strong>Exclusive MP3, WAV and Track Out</strong></li><br>
+                    <li>Unlimited units</li>
+                    <li>Unlimited - Free Downloads</li>
+                    <li>Unlimited - Paid Performances - </li>
+                    <li>Unlimited - Music Videos</li>
+                    <li>Unlimited - Audio Streams</li>
+                    <li>Unlimited - Video Streams</li>
+                    <li>Broadcasting Rights</li>
+                    <li>Unlimited - Radio Stations</li>
+                    <li>Unlimited - Monetization</li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close purple lighten-3 btn-flat">Close</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <Royalplayer />
     <div class="row">
       <div class="col s12 m6 offset-m3">
@@ -112,12 +213,21 @@ export default {
   },
   data(){
     return {
+      freebeat: null
     }
   },
-  updated(){
-    
+  methods: {
+    reload() {
+      //reload the Beats page to show the Royal Player
+      window.location.reload(true)
+    }
   }
 }
+
+$(document).ready(function(){
+    $('.modal').modal();
+  });
+
 </script>
 
 <style>
@@ -184,6 +294,25 @@ h2 {
 
 #feature-link a:hover {
   color: #9dd893;
+}
+
+.card .card-content.Pricing-info li {
+  font-size: 1.0em;
+  font-weight: 300;
+}
+
+.card .card-content.Contract-info li {
+  font-size: 1.0em;
+  font-weight: 300;
+}
+
+.modal img {
+  width: 100%;
+}
+
+.modal-content {
+  text-align: center;
+
 }
 
 #myDiv {

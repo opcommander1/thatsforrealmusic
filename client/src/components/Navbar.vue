@@ -5,11 +5,11 @@
         <div class="nav-wrapper">
           <img src="../assets/forrealmusiclogo.png" alt="That's For Real Music">
           <a href="#" data-target="mobile-resp" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <ul id="nav-desktop" class="right hide-on-med-and-down">
             <li><router-link to="/About">About</router-link></li>
             <li @click="reload"><router-link to="/">Home</router-link></li>
             <li><router-link to="/Alllessons/">All Lessons</router-link></li>
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons-desktop">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
             <!-- Reload the page in order for Royal Player to Appear -->
             <li @click="reload"><router-link to="/Beats">Beats</router-link></li>
             <!-- show navbar menu items if state variable exist -->
@@ -26,7 +26,7 @@
             <li class="sidenav-close"><router-link to="/About">About</router-link></li>
             <li class="sidenav-close" @click="reload"><router-link to="/">Home</router-link></li>
             <li class="sidenav-close"><router-link to="/Alllessons/">All Lessons</router-link></li>
-            <li class="sidenav-close"><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li class="sidenav-close"><a class="dropdown-trigger" href="#!" data-target="dropdown-lessons-mobile">Lessons<i class="material-icons right">arrow_drop_down</i></a></li>
             <!-- Reload the page in order for Royal Player to Appear -->
             <li @click="reload"><router-link to="/Beats">Beats</router-link></li>
             <!-- show navbar menu items if state variable exist -->
@@ -44,7 +44,24 @@
         </div>
       </div>
     </nav>
-    <ul id="dropdown-lessons" class="dropdown-content">
+    <ul id="dropdown-lessons-desktop" class="dropdown-content">
+      <li><a href="#">By Keys</a></li>
+      <!-- Route lessons by keys -->
+      <li class="divider"></li>
+      <!-- <li><a href="#">C Major</a></li> -->
+      <li><router-link to="/Bykey/DFlat">D Flat Major</router-link></li>
+      <li><router-link to="/Bykey/EFlat">E Flat Major</router-link></li>
+      <!-- <li><a href="#">E Major</a></li> -->
+      <li><router-link to="/Bykey/F">F Major</router-link></li>
+      <li><router-link to="/Bykey/GFlat">G Flat Major</router-link></li>
+      <!-- <li><a href="#">F Sharp Major</a></li>
+      <li><a href="#">G Major</a></li>
+      <li><a href="#">A Flat Major</a></li>
+      <li><a href="#">A Major</a></li>
+      <li><a href="#">B Flat Major</a></li>
+      <li><a href="#">B Major</a></li> -->
+    </ul>
+    <ul id="dropdown-lessons-mobile" class="dropdown-content">
       <li><a href="#">By Keys</a></li>
       <!-- Route lessons by keys -->
       <li class="divider"></li>
@@ -91,14 +108,15 @@ export default {
 }
 
 $(document).ready(function(){
-  $(".dropdown-trigger").dropdown({
+  $('.dropdown-trigger').dropdown({
     hover: true
   });
-});
-
-$(document).ready(function(){
   $('.sidenav').sidenav();
 });
+
+// $(document).ready(function(){
+//   $('.sidenav').sidenav();
+// });
 </script>
 
 <style>
@@ -126,7 +144,7 @@ nav ul a {
   width: 80%;
 }
 
-#nav-mobile li a{
+#nav-desktop li a{
   margin-right: -4px;
 }
 

@@ -3,16 +3,18 @@
    <div class="row">
       <div class="col s12 m12">
         <ul id="playlist1" style="display:none;">
-            <li data-path="content/mp3/02.mp3" data-thumbpath="content/thumbnails/small2.jpg" data-downloadable="no" data-duration="04:41">
+            <li data-path="content/mp3/02.mp3"  data-downloadable="no" data-duration="04:41">
             <p><span style="font-weight:bold;">MACKLEMORE & RYAN LEWIS vs MAJOR LAZER</span> -  can't hold us remix (ft swappi and 1st klase)</p>
           </li>
-          <li data-path="content/mp3/03.mp3" data-thumbpath="content/thumbnails/small3.jpg" data-downloadable="no" data-duration="03:49">
+          <li data-path="content/mp3/03.mp3"  data-downloadable="no" data-duration="03:49">
               <p><span style="font-weight:bold;">Crush ft. Camden Cox</span> - Could This Be Real (Luminox Remix)</p>
           </li>
-          <li data-path="content/mp3/04.mp3" data-thumbpath="content/thumbnails/small4.jpg"  data-duration="04:19">
+          <li data-path="content/mp3/04.mp3" 
+           data-duration="04:19">
               <p><span style="font-weight:bold;">DJ SLiiNK X DiRTY SOUTH JOE</span> - CERTiFiED TRAP TOUR OFFiCiAL MiX</p>
           </li>
-        <li data-path="content/mp3/05.mp3" data-thumbpath="content/thumbnails/small5.jpg" data-downloadable="no" data-duration="03:54">
+        <li data-path="content/mp3/05.mp3" 
+         data-downloadable="no" data-duration="03:54">
             <p><span style="font-weight:bold;">Knife Party</span> - LRAD (CRNKN FESTIE RMX)</p>
         </li>
       </ul>
@@ -117,7 +119,7 @@ export default {
               showShuffleButton:"yes",
               showDownloadMp3Button:"yes",
               showBuyButton:"no",
-              showShareButton:"yes",
+              showShareButton:"no",
               disableAudioScrubbar:"no",
               expandBackground:"no",
               titleColor:"#ce93d8",
@@ -142,10 +144,10 @@ export default {
               scrubberOffsetBottom:10,
               equlizerOffsetLeft:1,
               //playlists window settings+
-              showPlaylistsSearchInput:"yes",
-              usePlaylistsSelectBox:"yes",
+              showPlaylistsSearchInput:"no",
+              usePlaylistsSelectBox:"no",
               showPlaylistsSelectBoxNumbers:"yes",
-              showPlaylistsButtonAndPlaylists:"yes",
+              showPlaylistsButtonAndPlaylists:"no",
               showPlaylistsByDefault:"no",
               randomizePlaylist:"no",
               thumbnailSelectedType:"opacity",
