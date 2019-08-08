@@ -5,8 +5,8 @@
         <div class="row">
           <div class="col s12 m12 royalplayer">
             <ul id="beatlists1" style="display:none;">
-                <li data-path="content/mp3/02.mp3"  data-downloadable="no" data-duration="04:41">
-                <p><span style="font-weight:bold;">MACKLEMORE & RYAN LEWIS vs MAJOR LAZER</span> -  can't hold us remix (ft swappi and 1st klase)</p>
+                <li data-path="content/mp3/groove.wav"  data-downloadable="no" data-buy-url="#" data-duration="03:15">
+                <p><span style="font-weight:bold;">GROOVE</span> - Leasing options: </p>
               </li>
               <li data-path="content/mp3/03.mp3"  data-downloadable="no" data-duration="03:49">
                   <p><span style="font-weight:bold;">Crush ft. Camden Cox</span> - Could This Be Real (Luminox Remix)</p>
@@ -40,9 +40,43 @@
           </div>
         </div>
         <div class="row">
-          <ul v-if="Beats">
-            <li v-for="(beat, id) in Beats" :key="id">
-              <div class="col m3 s12">
+          <div class="col m4 s12 offset-m4">
+          <ul v-if="Beats" class="collection">
+            <li v-for="(beat, id) in Beats" :key="id" class="collection-item">
+              <!-- <p>{{ beat.title }} - {{ beat.license }}</p> -->
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <input type="hidden" name="hosted_button_id" value="M89FEUF44GPAW">
+
+                  <input type="hidden" name="on0" v-model="beat.title">{{ beat.title }}<br><select name="os0">
+                    <option value="MP3">MP3 $15.00 USD</option>
+                  </select><br>
+                  <div class="lease-option"><span>{{ beat.mp3price }}</span>
+                  <input type="hidden" name="currency_code" value="USD">
+                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="float:left">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                  </div>
+              </form>
+
+              <div class="lease-option"><span>{{ beat.mp3wavprice }}</span>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="float:left">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="A8L9UZBKVVJ4Y">
+
+                <input type="hidden" name="on0" v-model="beat.title"><select name="os0">
+                  <option value="MP3 AND WAV">MP3 AND WAV $30.00 USD</option>
+                </select> 
+
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+              </div>
+
+
+
+
+              <!-- <div class="col m3 s12">
                 <div class="card small beat-section">
                   <div class="card-content title">
                     <p>{{ beat.title }}</p>
@@ -52,9 +86,10 @@
                     <a v-bind:href="beat.download" download>Download</a>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </li>
            </ul>
+           </div>
         </div>
       </div>
     </div>
@@ -71,16 +106,20 @@ export default {
         {
         id: 1,
         img: "/img/beatimage.ff5f5e45.jpg",
-        title: "West Coast Grove",
-        license: "Lease",
-        download: "#"
+        title: "GROVE",
+        license: "LEASE OPTIONS",
+        download: "#",
+        mp3price: "$15 Lease",
+        mp3wavprice: "$30 Lease"
         },
         {
         id: 2,
         img: "/img/beatimage.ff5f5e45.jpg",
-        title: "East Coast Grove",
+        title: "EAST COAST GROVE",
         license: "Lease",
-        download: "#"
+        download: "#",
+        mp3price: "$15 Lease",
+        mp3wavprice: "$30 Lease"
         },
       ]
     }
@@ -278,6 +317,17 @@ export default {
   color: #9dd893;
 }
 
+.collection .collection-item {
+  font-weight: 300;
+}
+
+.lease-option {
+  padding-bottom: 10px;
+}
+
+.lease-option span {
+  padding-left: 5px;
+}
 </style>
 
 
