@@ -65,10 +65,11 @@
         <div class="card purple lighten-3">
           <div class="card-content featurebeat-info">
             <span class="card-title">Feature Beat</span>
-            <p>Listed below is a downloadable link, which contains all of the subsequent files for the beat.  To see all beats click on the link below "See All Beats".  Remember you must signup for free to see the links for downloads. You can play the feature beat below in the music player before downloading.</p>
+            <p>Listed below is a downloadable link, which contains mp3 file for the Free Beat.  To see all beats click on the link below "See All Beats".  Remember you must signup for free to see the link for free beat downloads. You can play the free/feature beat below in the music player before downloading or leasing.</p>
           </div>
           <div class="card-action" id="feature-link">
-            <a v-bind:href="freebeat" download>Free Beat</a>
+            <!-- Show only if customer is login -->
+            <a v-if="$store.state.user !== 'Guest'" href="content/mp3/Gobble.mp3" download>Free Beat</a>
             <!-- Reload the page in order for Royal Player to Appear -->
             <span @click="reload"><router-link to="/Beats">See All Beats</router-link></span>
           </div>
@@ -141,7 +142,7 @@
                     <li>Unlimited - Video Streams</li>
                     <li>Broadcasting Rights</li>
                     <li>12 - Radio Stations</li>
-                    <li>Monetization - up to 100,000 views(each) before renewing leasing</li>
+                    <li>Monetization - up to 100,000 views(each) before renewing lease</li>
                   </ul>
                 </div>
                 <div class="modal-footer">
@@ -185,7 +186,7 @@
           <div class="card-image">
             <img src="../../assets/fulllogo.png" alt="That's For Real Logo">
             <div class="card-content">
-              <p>You can make donation to this site with any amount. Your donation will help with the site expenses. You can donate by clicking on the link below.  <br><br>Thank You for your Donation!</p>
+              <p>You can make donation to this site with any amount. Your donation will help with the site hosting expenses which I provide with free piano tutorials. You can donate by clicking on the link below.  <br><br>Thank You for your Donation!</p>
             </div>
             <div class="card-action">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">

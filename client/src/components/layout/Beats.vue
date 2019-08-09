@@ -5,11 +5,11 @@
         <div class="row">
           <div class="col s12 m12 royalplayer">
             <ul id="beatlists1" style="display:none;">
-                <li data-path="content/mp3/groove.wav"  data-downloadable="no" data-buy-url="#" data-duration="03:15">
-                <p><span style="font-weight:bold;">GROOVE</span> - Leasing options: </p>
+                <li data-path="content/mp3/groove.wav"  data-downloadable="no"  data-duration="03:15">
+                <p><span style="font-weight:bold;">GROOVE</span></p>
               </li>
-              <li data-path="content/mp3/03.mp3"  data-downloadable="no" data-duration="03:49">
-                  <p><span style="font-weight:bold;">Crush ft. Camden Cox</span> - Could This Be Real (Luminox Remix)</p>
+              <li data-path="content/mp3/Gobble.mp3"  data-downloadable="no" data-duration="03:09">
+                  <p><span style="font-weight:bold;">GOBBLE SPIT WORSHIP - </span>FREE BEAT WHEN SIGNUP</p>
               </li>
               <li data-path="content/mp3/04.mp3"   data-duration="04:19">
                   <p><span style="font-weight:bold;">DJ SLiiNK X DiRTY SOUTH JOE</span> - CERTiFiED TRAP TOUR OFFiCiAL MiX</p>
@@ -34,44 +34,54 @@
             <div class="card info">
               <div class="card-content black">
                 <span class="card-title green-text">INFO</span>
-                <p class="info green-text">This section allows you to purchase beats through paypal debit and credit options. Select the dropdown menu below on the specific beat, it will display the different leasing options.  You can hear the beat first before downloading, above is the Beat Player. <br>Thank You For Your Time With "That's For Real Music".</p>
+                <p class="info green-text">This section allows you to purchase beats through paypal debit and credit options. Click the pay now button below to a specific beat and it will take you to the checkout page.  You can hear the beat first before leasing, above is the Beat Player. <br>Thank You For Your Time With "That's For Real Music".</p>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col m4 s12 offset-m4">
+          <div class="col m6 s12 offset-m3">
           <ul v-if="Beats" class="collection">
-            <li v-for="(beat, id) in Beats" :key="id" class="collection-item">
+            <li v-for="(beat, id) in Beats" :key="id" class="collection-item black white-text">
               <!-- <p>{{ beat.title }} - {{ beat.license }}</p> -->
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                   <input type="hidden" name="cmd" value="_s-xclick">
                   <input type="hidden" name="hosted_button_id" value="M89FEUF44GPAW">
 
-                  <input type="hidden" name="on0" v-model="beat.title">{{ beat.title }}<br><select name="os0">
-                    <option value="MP3">MP3 $15.00 USD</option>
-                  </select><br>
-                  <div class="lease-option"><span>{{ beat.mp3price }}</span>
-                  <input type="hidden" name="currency_code" value="USD">
-                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="float:left">
-                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                  <div class="title">
+                    <input type="hidden" name="on0" v-model="beat.title"><span class="beat-title">{{ beat.title }}:</span>
+                    <span id="price-title">
+                      {{ beat.mp3price }}
+                    </span>
                   </div>
+                  <span class="lease-option">
+                    <select name="os0">
+                      <option value="MP3">MP3 $15.00 USD</option>
+                    </select>
+      
+                  <input type="hidden" name="currency_code" value="USD">
+                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                  </span>
               </form>
 
-              <div class="lease-option"><span>{{ beat.mp3wavprice }}</span>
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="float:left">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="A8L9UZBKVVJ4Y">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <input type="hidden" name="hosted_button_id" value="A8L9UZBKVVJ4Y">
 
-                <input type="hidden" name="on0" v-model="beat.title"><select name="os0">
-                  <option value="MP3 AND WAV">MP3 AND WAV $30.00 USD</option>
-                </select> 
+                  <span class="lease-option">
+                    <span class="price-title">
+                      {{ beat.mp3wavprice }}
+                    </span>
+                  <input type="hidden" name="on0" v-model="beat.title"><select name="os0">
+                    <option value="MP3 AND WAV">MP3 AND WAV $30.00 USD</option>
+                  </select> 
 
-                <input type="hidden" name="currency_code" value="USD">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-              </form>
-              </div>
+                  <input type="hidden" name="currency_code" value="USD">
+                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                  </span>
+                </form>
 
 
 
@@ -109,8 +119,8 @@ export default {
         title: "GROVE",
         license: "LEASE OPTIONS",
         download: "#",
-        mp3price: "$15 Lease",
-        mp3wavprice: "$30 Lease"
+        mp3price: "$15 MP3 Lease",
+        mp3wavprice: "$30 MP3 AND WAV Lease"
         },
         {
         id: 2,
@@ -118,8 +128,8 @@ export default {
         title: "EAST COAST GROVE",
         license: "Lease",
         download: "#",
-        mp3price: "$15 Lease",
-        mp3wavprice: "$30 Lease"
+        mp3price: "$15 MP3 Lease",
+        mp3wavprice: "$30 MP3 AND WAV Lease"
         },
       ]
     }
@@ -321,13 +331,19 @@ export default {
   font-weight: 300;
 }
 
-.lease-option {
-  padding-bottom: 10px;
+.title {
+  display: inline;
 }
 
-.lease-option span {
-  padding-left: 5px;
+.title .beat-title {
+  padding-right: 5px;
 }
+
+#price-title {
+  padding-right: 5px;
+}
+
+
 </style>
 
 

@@ -3,11 +3,11 @@
    <div class="row">
       <div class="col s12 m12">
         <ul id="playlist1" style="display:none;">
-            <li data-path="content/mp3/02.mp3"  data-downloadable="no" data-duration="04:41">
-            <p><span style="font-weight:bold;">MACKLEMORE & RYAN LEWIS vs MAJOR LAZER</span> -  can't hold us remix (ft swappi and 1st klase)</p>
+            <li data-path="content/mp3/groove.wav"  data-downloadable="no" data-duration="03:15">
+            <p><span style="font-weight:bold;">GROOVE</span></p>
           </li>
-          <li data-path="content/mp3/03.mp3"  data-downloadable="no" data-duration="03:49">
-              <p><span style="font-weight:bold;">Crush ft. Camden Cox</span> - Could This Be Real (Luminox Remix)</p>
+          <li data-path="content/mp3/Gobble.mp3"  data-downloadable="no" data-duration="03:09">
+              <p><span style="font-weight:bold;">GOBBLE SPIT WORSHIP - </span>FREE BEAT WITH SIGNUP</p>
           </li>
           <li data-path="content/mp3/04.mp3" 
            data-duration="04:19">
