@@ -45,6 +45,15 @@ app.use(passport.session());
 //require routes shortcut
 require('./routes/signup')(app)
 
+// Handle production
+if(process.env.NODE_ENV === 'production') {
+  // Static folder
+  app.use(express.static(__dirname + '/public/'));
+
+  // Handle SPA refer to any route
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+}
+
 //Server setup
 const port = process.env.PORT || 5000;
 
