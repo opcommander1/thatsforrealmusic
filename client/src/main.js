@@ -5,8 +5,6 @@ import { sync } from 'vuex-router-sync'
 import PortalVue from 'portal-vue'
 import mysql from 'mysql'
 import store from '@/store/store'
-// let database = require('../config/config')
-
 
 
 Vue.use(PortalVue, mysql)

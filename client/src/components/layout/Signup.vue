@@ -80,7 +80,7 @@ export default {
   },
   methods: {
    async addMember(){
-     //Gets response from client server and add it input data
+     //Adds user data to the server database 
      try {
      const response = await SignupService.signup({
         first_name: this.fname,
@@ -91,44 +91,14 @@ export default {
       })
       //send member to Login
       this.$router.push({ name: 'Login' })
-      //Set global state to keep user logged in 
+      //Set global state token and user to keep user logged in 
       this.$store.dispatch('setToken', response.data.token)
       this.$store.dispatch('setUser', response.data.user)
      } catch (error) {
+       //send error message to user inteface
        this.feedback = error.response.data.err
      }
     console.log(this.feedback)
-      // if((this.fname) && (this.lname) && (this.email) && (this.username) && (this.password)) {
-      // this.feedbackfname = null
-      // this.feedbacklname = null
-      // this.feedbackemail = null
-      // this.feedbackuname = null
-      // this.feedbackpassword = null
-      // con.connect((err) => {
-      //   if(err) throw err
-      //   con.query('INSERT INTO Signup(first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)',
-      //   [this.fname, this.lname, this.email, this.username, this.password]
-      // ).then((err) => {
-      //     if(err) throw err
-      //       this.feedbackfname = null
-      //       this.feedbacklname = null
-      //       this.feedbackemail = null
-      //       this.feedbackuname = null
-      //       this.feedbackpassword = null
-      //   }
-      // )}
-      // )
-      // } if(!this.fname) {
-      //   this.feedbackfname = "Please enter first name"
-      // } if(!this.lname) {
-      //   this.feedbacklname = "Please enter last name"
-      // } if(!this.email) {
-      //   this.feedbackemail = "Please enter email"
-      // } if(!this.username) {
-      //   this.feedbackuname = "Please enter username"
-      // } if(!this.password) {
-      //   this.feedbackpassword = "Please enter password, and password must be greater or equal to 8"
-      // }
     }
   },
 
@@ -139,6 +109,8 @@ export default {
       },
 
       set: function () {
+        //if input field aren't empty, the feedback will be clear and set
+        //to null
         if((this.fname) && (this.feedbackfname != null)) {
          this.feedbackfname = null
         } else if ((this.lname) && (this.feedbacklname != null)) {
@@ -161,6 +133,7 @@ export default {
 .Signup {
  background-color: #9dd893;
  margin-top: -34px;
+ height: 100%;
 }
 
 .Signup .title h2 {

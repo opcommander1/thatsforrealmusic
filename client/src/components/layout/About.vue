@@ -40,6 +40,7 @@ export default {
   background: -webkit-radial-gradient(center, ellipse cover, rgba(157,216,147,1) 8%,rgba(206,147,216,1) 13%,rgba(157,216,147,1) 22%,rgba(206,147,216,1) 43%,rgba(206,147,216,1) 43%,rgba(157,216,147,1) 64%); /* Chrome10-25,Safari5.1-6 */
   background: radial-gradient(ellipse at center, rgba(157,216,147,1) 8%,rgba(206,147,216,1) 13%,rgba(157,216,147,1) 22%,rgba(206,147,216,1) 43%,rgba(206,147,216,1) 43%,rgba(157,216,147,1) 64%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd893', endColorstr='#9dd893',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  height: 100%;
 }
 
 .About .card {

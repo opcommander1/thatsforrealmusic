@@ -31,7 +31,7 @@ function jwtSignUser(user) {
      try {
        //check user email in the database and return result
       con.query("SELECT email, username FROM Signup WHERE email = ?OR username = ?", [data[2], data[3]], (err, result, fields) => {
-         console.log(result.length)
+         //console.log(result.length)
          //check to see if result not null
          if (result[0]) {
           queryResult.email = result[0].email 
@@ -60,9 +60,9 @@ function jwtSignUser(user) {
 
               const user_id = results[0];
 
-              console.log(results[0])
+              // console.log(results[0])
               req.login(user_id, function(err){
-                console.log('Successful log in')
+                console.log('Successful')
               })
             })
             console.log("1 record added")
@@ -76,8 +76,6 @@ function jwtSignUser(user) {
      }
   },
 
-  // result[0].email === data[2]
-  // result[0].username === data[3]
   async login (req, res) {
     let loginData = [
       req.body.username,
@@ -91,7 +89,7 @@ function jwtSignUser(user) {
     try {
       //check username in the database and return result
       con.query("SELECT id, username, password FROM Signup WHERE username = ?", [loginData[0]], (err, result, fields) => { 
-        console.log(result)
+        // console.log(result)
         //check to see if there is results 
         if(result[0]) {
           queryResult.username = result[0].username
@@ -112,7 +110,7 @@ function jwtSignUser(user) {
           bcrypt.compare(loginData[1], result[0].password, function(err, results) {
             if(results == true){
               const userJson = (JSON.stringify(result[0]))
-              console.log(userJson)
+              // console.log(userJson)
             res.send({
               user: {
                 id: result[0].id,
@@ -147,7 +145,7 @@ function jwtSignUser(user) {
     try {
       //search to see if username is in the database
       con.query("SELECT id, username, password FROM Signup WHERE username = ?", [updatedata[0]], (err, result, field) => {
-        console.log(result)
+        // console.log(result)
         //check if result are return
         if(result.length <= 0 || "undefined" == result.length){
             res.status(403).send({
@@ -173,10 +171,5 @@ function jwtSignUser(user) {
     }
   },
   
-
-  async home (req, res){
-    console.log(req.user)
-    console.log(req.isAuthenticated())
-  }
 }
 // })

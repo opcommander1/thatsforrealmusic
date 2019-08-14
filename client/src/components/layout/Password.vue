@@ -45,7 +45,7 @@ export default {
   },
   methods: {
    async updatepassword(){
-     //Gets response from client server and add it input data
+     //Update user data to the server database
      try {
      const response = await SignupService.updatepassword({
         username: this.username,
@@ -55,6 +55,7 @@ export default {
       //send member to Login
       this.$router.push({ name: 'Login' })
      } catch (error) {
+      //send error message to user inteface
        this.feedback = error.response.data.err
        console.log(this.username + " " + this.password)
      }

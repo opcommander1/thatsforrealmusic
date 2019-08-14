@@ -54,55 +54,34 @@ data(){
   methods: {
    async login(){
      try {
+       //Send user data to the server and check login info in the backend
      const response = await SignupService.login({
         username: this.username,
         password: this.password
       })
+      //If login correct takes user to home page
+      //Set the token to the global state object
+      //Set the user to the global state object
+      // Saves CurrentUser info (Token and Username to Localstorage) to keep 
+      // user login
       this.$router.push({ name: 'Home'})
       console.log(response)
       this.$store.dispatch('setToken', response.data.token)
       this.$store.dispatch('setUser', response.data.user)
       localStorage.setItem('currentUser', JSON.stringify({token: response.data.token, user: response.data.user.username}))
      } catch (error) {
+       //Catch error from user and display on interface
        this.feedback = error.response.data.err
      }
     console.log(this.feedback)
-      localStorage.removeItem('counter')
+    //remove any previous counter from localstorage when logging in
+    //Set new logincounter to 0 and add logincounter by 1, helps to keep
+    //track of user even if the page refreshes or closes
+      // localStorage.removeItem('counter')
       let logincounter = 0
       logincounter++
       localStorage.setItem('logincounter', logincounter)
       console.log(logincounter)
-      // if((this.fname) && (this.lname) && (this.email) && (this.username) && (this.password)) {
-      // this.feedbackfname = null
-      // this.feedbacklname = null
-      // this.feedbackemail = null
-      // this.feedbackuname = null
-      // this.feedbackpassword = null
-      // con.connect((err) => {
-      //   if(err) throw err
-      //   con.query('INSERT INTO Signup(first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)',
-      //   [this.fname, this.lname, this.email, this.username, this.password]
-      // ).then((err) => {
-      //     if(err) throw err
-      //       this.feedbackfname = null
-      //       this.feedbacklname = null
-      //       this.feedbackemail = null
-      //       this.feedbackuname = null
-      //       this.feedbackpassword = null
-      //   }
-      // )}
-      // )
-      // } if(!this.fname) {
-      //   this.feedbackfname = "Please enter first name"
-      // } if(!this.lname) {
-      //   this.feedbacklname = "Please enter last name"
-      // } if(!this.email) {
-      //   this.feedbackemail = "Please enter email"
-      // } if(!this.username) {
-      //   this.feedbackuname = "Please enter username"
-      // } if(!this.password) {
-      //   this.feedbackpassword = "Please enter password, and password must be greater or equal to 8"
-      // }
     }
   },  
 }
@@ -112,6 +91,7 @@ data(){
 .Login {
  background-color: #9dd893;
  margin-top: -34px;
+ height: 100%;
 }
 
 .Login .title h2 {

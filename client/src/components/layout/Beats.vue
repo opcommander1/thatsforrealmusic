@@ -82,21 +82,6 @@
                   <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                   </span>
                 </form>
-
-
-
-
-              <!-- <div class="col m3 s12">
-                <div class="card small beat-section">
-                  <div class="card-content title">
-                    <p>{{ beat.title }}</p>
-                    <p>{{ beat.license }}</p>
-                  </div>
-                  <div class="card-action" id="download-link">
-                    <a v-bind:href="beat.download" download>Download</a>
-                  </div>
-                </div>
-              </div> -->
             </li>
            </ul>
            </div>
@@ -285,6 +270,7 @@ export default {
   background: url(../../assets/speakers.jpg) no-repeat center center fixed;
   background-size: cover;
   background-position: center;
+  height: 100%;
 }
 
 #Beats {

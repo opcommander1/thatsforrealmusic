@@ -62,7 +62,6 @@ export default {
       //if local storage logincounter is less than 3 royal player 
       //will appear and show button will disappear
       if (this.$store.state.isUserLoggedIn == true && logincounter < 3) {
-        // localStorage.setItem('showButton', false)
         this.showButton = localStorage.getItem('showButton')
         window.location.reload('true')
       }

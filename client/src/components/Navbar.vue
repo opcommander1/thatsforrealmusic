@@ -98,6 +98,7 @@ export default {
     },
     logout() {
       //Log out user and remove global state and remove local storage
+      //and set user to Guest.  Route user to Login page.
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', "Guest")
       this.$router.push({ name: 'Login' })
@@ -106,7 +107,8 @@ export default {
     },
   },
 }
-
+//Trigger dropdown menu when hover and add sidebar nav when screen is
+//mobile size
 $(document).ready(function(){
   $('.dropdown-trigger').dropdown({
     hover: true
@@ -114,9 +116,7 @@ $(document).ready(function(){
   $('.sidenav').sidenav();
 });
 
-// $(document).ready(function(){
-//   $('.sidenav').sidenav();
-// });
+
 </script>
 
 <style>

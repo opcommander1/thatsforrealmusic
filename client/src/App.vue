@@ -127,15 +127,6 @@ export default {
         console.log('This is null ' + counter) 
       }
     },
-    // created() {
-    //   let test = this.$store.state.isUserLoggedIn
-    //   if (test) {
-    //     localStorage.setItem('showButton', JSON.stringify("true"))
-    //   } else {
-    //     localStorage.setItem('showButton', JSON.stringify("false"))
-    //     console.log(test)
-    //   }
-    // }
 }
 
 </script>

@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   strict: true,
+  //Set Globle state variable
   state: {
     token: null,
     user: "Guest",
