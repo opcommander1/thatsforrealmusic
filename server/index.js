@@ -13,6 +13,14 @@ app.use(bodyParser.json())
 app.use(cors())
 let passport = require('passport')
 
+//express will use the build dist production folder to display app
+app.use(express.static(__dirname + "/dist/"));
+
+//Avoid 404 error with signal page application
+app.get(/.*/, function(req, res) {
+  res.sendFile(__dirname + "/dist/index.html");
+});
+
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
