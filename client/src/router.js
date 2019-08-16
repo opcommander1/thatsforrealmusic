@@ -9,6 +9,9 @@ import Alllessons from '@/components/layout/Alllessons.vue'
 import Bykey from '@/components/layout/Bykey.vue'
 import Beats from '@/components/layout/Beats.vue'
 
+
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -37,7 +40,7 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
-    },
+      },
 
     {
       path: '/PasswordReset',

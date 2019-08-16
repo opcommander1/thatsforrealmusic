@@ -58,7 +58,7 @@
 <script>
 // let con = require('../../../../server/modules/config.js')
 import SignupService from '@/services/SignupService'
-
+import store from '@/store/store'
 
 
 export default {
@@ -78,6 +78,20 @@ export default {
       feedback: null
     }
   },
+
+  //User unable to type sigup in the url if user is already
+  //login.  Therefore restricts user from the signup page.
+  //Method will fire before route is shown on page.
+  beforeRouteEnter (to, from, next){
+    next(vm => {
+      if(store.state.user !== "Guest"){
+        next('/')
+      } else {
+        next()
+      }
+    })
+  },
+
   methods: {
    async addMember(){
      //Adds user data to the server database 

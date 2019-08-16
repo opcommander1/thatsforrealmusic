@@ -41,6 +41,7 @@
 
 <script>
 import SignupService from '@/services/SignupService'
+import store from '@/store/store'
 export default {
 name: 'Login',
 data(){
@@ -51,6 +52,20 @@ data(){
       logincounter: 0
     }
   },
+
+  //User unable to type login in the url if user is already
+  //login.  Therefore restricts user from the login page.
+  //Method will fire before route is shown on page.
+  beforeRouteEnter (to, from, next){
+    next(vm => {
+      if(store.state.user !== "Guest"){
+        next('/')
+      } else {
+        next()
+      }
+    })
+  },
+
   methods: {
    async login(){
      try {
