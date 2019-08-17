@@ -11,6 +11,7 @@
               <li><a class="black-text" href="https://www.facebook.com/thatsforrealmusic/" target="blank">Facebook</a></li>
               <li><a class="black-text" href="https://twitter.com/Tforrealmusic" target="blank">Twitter</a></li>
               <li><a class="black-text" href="https://www.instagram.com/thatsforrealmusic/" target="blank">Instagram</a></li>
+              <li><span class="black-text">Contact: </span><a class="black-text" href="mailto:thatsforrealmusic@forrealcodes.com">That's For Real Music</a></li>
             </ul>
           </div>
         </div>
