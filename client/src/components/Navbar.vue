@@ -54,9 +54,9 @@
       <!-- <li><a href="#">E Major</a></li> -->
       <li><router-link to="/Bykey/F">F Major</router-link></li>
       <li><router-link to="/Bykey/GFlat">G Flat Major</router-link></li>
-      <!-- <li><a href="#">F Sharp Major</a></li>
-      <li><a href="#">G Major</a></li>
-      <li><a href="#">A Flat Major</a></li>
+      <!-- <li><a href="#">F Sharp Major</a></li> -->
+      <li><router-link to="/Bykey/G">G Major</router-link></li>
+      <!-- <li><a href="#">A Flat Major</a></li>
       <li><a href="#">A Major</a></li>
       <li><a href="#">B Flat Major</a></li>
       <li><a href="#">B Major</a></li> -->

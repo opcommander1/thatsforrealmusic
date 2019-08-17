@@ -11,12 +11,14 @@
         </div>
         <div class="card">
           <div class="card-image">
-            <iframe id="current-vid" src="http://www.youtube.com/embed/AppDg5PavHk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="current-vid" src="https://www.youtube.com/embed/JDoaMSssHuk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-content">
-              <p>Simple song in the key of E flat. Should be able to master the song within a week.</p>
+              <p>Latin feel song in the key of G. Nice chords and good rhythm. "Signup for free to download the backing track and piano midi track"</p>
             </div>
-            <div class="card-action">
-
+            <div class="card-action" id="music-files">
+              <!-- Show only if customer is login -->
+              <a v-if="$store.state.user !== 'Guest'" href="content/mp3/GloriousBackingTrack.mp3" download>BACKING TRACK</a>
+              <a v-if="$store.state.user !== 'Guest'" href="content/mp3/GloriousPianoMidi.mid" download>PIANO MIDI TRACK</a>
             </div>
           </div>
         </div>
@@ -286,6 +288,15 @@ h2 {
 
 .card .card-content.featurebeat-info p {
   font-size: 1.0em;
+}
+
+#music-files a {
+  color: #ce93d8;
+  transition: color .3s ease-in-out;
+}
+
+#music-files a:hover {
+  color: #9dd893;
 }
 
 #feature-link a {

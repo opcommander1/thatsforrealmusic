@@ -57,9 +57,9 @@ export default {
      } catch (error) {
       //send error message to user inteface
        this.feedback = error.response.data.err
-       console.log(this.username + " " + this.password)
+      //  console.log(this.username + " " + this.password)
      }
-    console.log(this.feedback)
+    // console.log(this.feedback)
     }
   },
 }

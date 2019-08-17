@@ -41,50 +41,50 @@
         </div>
         <div class="row">
           <div class="col m6 s12 offset-m3">
-          <ul v-if="Beats" class="collection">
-            <li v-for="(beat, id) in Beats" :key="id" class="collection-item black white-text">
-              <!-- <p>{{ beat.title }} - {{ beat.license }}</p> -->
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                  <input type="hidden" name="cmd" value="_s-xclick">
-                  <input type="hidden" name="hosted_button_id" value="M89FEUF44GPAW">
-
-                  <div class="title">
-                    <input type="hidden" name="on0" v-model="beat.title"><span class="beat-title">{{ beat.title }}:</span>
-                    <span id="price-title">
-                      {{ beat.mp3price }}
-                    </span>
-                  </div>
-                  <span class="lease-option">
-                    <select name="os0">
-                      <option value="MP3">MP3 $15.00 USD</option>
-                    </select>
-      
-                  <input type="hidden" name="currency_code" value="USD">
-                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                  </span>
-              </form>
-
+            <!-- Shows the collection of beats -->
+            <ul v-if="Beats" class="collection">
+              <li v-for="(beat, id) in Beats" :key="id"    class="collection-item black white-text">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                  <input type="hidden" name="cmd" value="_s-xclick">
-                  <input type="hidden" name="hosted_button_id" value="A8L9UZBKVVJ4Y">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="M89FEUF44GPAW">
 
-                  <span class="lease-option">
-                    <span class="price-title">
-                      {{ beat.mp3wavprice }}
+                    <div class="title">
+                      <input type="hidden" name="on0" v-model="beat.title"><span class="beat-title">{{ beat.title }}:</span>
+                      <span id="price-title">
+                        {{ beat.mp3price }}
+                      </span>
+                    </div>
+                    <span class="lease-option">
+                      <select name="os0">
+                        <option value="MP3">MP3 $15.00 USD</option>
+                      </select>
+        
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                     </span>
-                  <input type="hidden" name="on0" v-model="beat.title"><select name="os0">
-                    <option value="MP3 AND WAV">MP3 AND WAV $30.00 USD</option>
-                  </select> 
-
-                  <input type="hidden" name="currency_code" value="USD">
-                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                  </span>
                 </form>
-            </li>
-           </ul>
-           </div>
+
+                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="A8L9UZBKVVJ4Y">
+
+                    <span class="lease-option">
+                      <span class="price-title">
+                        {{ beat.mp3wavprice }}
+                      </span>
+                    <input type="hidden" name="on0" v-model="beat.title"><select name="os0">
+                      <option value="MP3 AND WAV">MP3 AND WAV $30.00 USD</option>
+                    </select> 
+
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </span>
+                </form>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -100,19 +100,13 @@ export default {
       Beats: [
         {
         id: 1,
-        img: "/img/beatimage.ff5f5e45.jpg",
         title: "GROVE",
-        license: "LEASE OPTIONS",
-        download: "#",
         mp3price: "$15 MP3 Lease",
         mp3wavprice: "$30 MP3 AND WAV Lease"
         },
         {
         id: 2,
-        img: "/img/beatimage.ff5f5e45.jpg",
         title: "EAST COAST GROVE",
-        license: "Lease",
-        download: "#",
         mp3price: "$15 MP3 Lease",
         mp3wavprice: "$30 MP3 AND WAV Lease"
         },

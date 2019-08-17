@@ -16,8 +16,8 @@
                   <p>{{ lesson.desc }}</p>
                 </div>
                 <div class="card-action" id="music-link">
-                  <a v-bind:href="lesson.sheetMusic">Sheet Music</a>
-                  <a v-bind:href="lesson.musicFiles">Music Files</a>
+                  <a v-if="$store.state.user !== 'Guest' && lesson.BackingTrack !== ''" v-bind:href="lesson.BackingTrack" download="">Backing Track </a>
+                  <a v-if="$store.state.user !== 'Guest' && lesson.PianoMidi !== ''" v-bind:href="lesson.PianoMidi" download="">Piano Midi</a>
                 </div>
               </div>
             </div>

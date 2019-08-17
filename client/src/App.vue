@@ -29,8 +29,8 @@ export default {
         title: "How to play - We lift our hands in the Sanctuary",
         desc: "This a fun and energetic song.  This song will give you practice in many keys.  It starts out in the D Flat key.",
         key: "/Bykey/DFlat",
-        sheetMusic: "",
-        musicFiles: ""
+        BackingTrack: "",
+        PianoMidi: ""
       },
       {
         index: 2,
@@ -39,58 +39,58 @@ export default {
         title: "How to play - Anointing",
         desc: "This is dynamic song with huge two hand voicing chords. This song is in the key of D Flat",
         key: "/Bykey/DFlat",
-        sheetMusic: "",
-        musicFiles: "" 
+        BackingTrack: "",
+        PianoMidi: ""
       },
       {
         index: 3,
-        pageId: 1,
-        src: "https://www.youtube.com/embed/TP6NjKTLuyo",
-        title: "How to play - We Lift Our Hands in the Sanctuary",
-        desc: "A lively upbeat song that will teach you to play in many keys.  This song starts in key of D Flat",
-        key: "/Bykey/DFlat",
-        sheetMusic: "",
-        musicFiles: "" 
-      },
-      {
-        index: 4,
         pageId: 1,
         src: "https://www.youtube.com/embed/AppDg5PavHk",
         title: "How to play - Bread of Heaven",
         desc: "Simple beautiful song in the key of E flat. Should be able to master the song within a week.",
         key: "/Bykey/EFlat",
-        sheetMusic: "",
-        musicFiles: "" 
+        BackingTrack: "",
+        PianoMidi: ""
       },
       {
-        index: 5,
+        index: 4,
         pageId: 1,
         src: "https://www.youtube.com/embed/zOPH-1mOPZs",
         title: "How to play - Just want to praise you",
         desc: "Smooth jazzy feel song, that will teach you left hand bass.  This song starts in the key of G Flat",
         key: "/Bykey/GFlat",
-        sheetMusic: "",
-        musicFiles: "" 
+        BackingTrack: "",
+        PianoMidi: "" 
       },
       {
-        index: 6,
+        index: 5,
         pageId: null,
         src: "https://www.youtube.com/embed/_OXRtl9o3kQ",
         title: "How to play - Awesome God",
         desc: "Very worshipful song that has nice two hand voicing. This song is in the key of E Flat",
         key: "/Bykey/EFlat",
-        sheetMusic: "",
-        musicFiles: "" 
+        BackingTrack: "",
+        PianoMidi: ""
       },
       {
-        index: 7,
+        index: 6,
         pageId: null,
         src: "https://www.youtube.com/embed/djMdRlqO_Dg",
         title: "How to play - Great is Your Mercy",
         desc: "One of the most popular song back then.  Once you get this song down, you will be able to add your own improvisation to the song.  The song is in the key of F.",
         key: "/Bykey/F",
-        sheetMusic: "",
-        musicFiles: "" 
+        BackingTrack: "",
+        PianoMidi: ""
+      },
+      {
+        index: 7,
+        pageId: null,
+        src: "https://www.youtube.com/embed/JDoaMSssHuk",
+        title: "How to play - Glorious",
+        desc: "Latin feel song in the key of G. Nice chords and good rhythm..  The song is in the key of G.",
+        key: "/Bykey/G",
+        BackingTrack: "../content/mp3/GloriousBackingTrack.mp3",
+        PianoMidi: "../content/mp3/GloriousPianoMidi.mid"
       },
       ]
     }
@@ -111,7 +111,7 @@ export default {
       let currentUserInfo = JSON.parse(currentUser)
       this.$store.dispatch('setToken', currentUserInfo.token)
       this.$store.dispatch('setUser', currentUserInfo.user),localStorage.setItem('showButton',false)
-      console.log(currentUserInfo)
+      // console.log(currentUserInfo)
       } else {
         console.log('Not Login')
       }
@@ -121,10 +121,10 @@ export default {
     //alleviate any typeof null errors 
       if((typeof usernameobj !== null && counter > 0)){
         this.localusername = usernameobj.user
-        console.log('This is not null')
+        // console.log('This is not null')
       } else {
         this.localusername = null
-        console.log('This is null ' + counter) 
+        // console.log('This is null ' + counter) 
       }
     },
 }

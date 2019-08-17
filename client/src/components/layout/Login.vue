@@ -80,7 +80,7 @@ data(){
       // Saves CurrentUser info (Token and Username to Localstorage) to keep 
       // user login
       this.$router.push({ name: 'Home'})
-      console.log(response)
+      // console.log(response)
       this.$store.dispatch('setToken', response.data.token)
       this.$store.dispatch('setUser', response.data.user)
       localStorage.setItem('currentUser', JSON.stringify({token: response.data.token, user: response.data.user.username}))
@@ -88,7 +88,7 @@ data(){
        //Catch error from user and display on interface
        this.feedback = error.response.data.err
      }
-    console.log(this.feedback)
+    // console.log(this.feedback)
     //remove any previous counter from localstorage when logging in
     //Set new logincounter to 0 and add logincounter by 1, helps to keep
     //track of user even if the page refreshes or closes
@@ -96,7 +96,7 @@ data(){
       let logincounter = 0
       logincounter++
       localStorage.setItem('logincounter', logincounter)
-      console.log(logincounter)
+      // console.log(logincounter)
     }
   },  
 }

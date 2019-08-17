@@ -112,7 +112,7 @@ export default {
        //send error message to user inteface
        this.feedback = error.response.data.err
      }
-    console.log(this.feedback)
+    // console.log(this.feedback)
     }
   },
 

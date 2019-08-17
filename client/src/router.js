@@ -80,6 +80,10 @@ export default new Router({
           {
             path: 'GFlat',
             component: Bykey
+          },
+          {
+            path: 'G',
+            component: Bykey
           }
         ],
     },
