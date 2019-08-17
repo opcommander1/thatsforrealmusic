@@ -2,7 +2,7 @@
   "name": "thatsforrealmusic",
   "version": "1.0.0",
   "engine": {
-    "node": "8.11.4"
+    "node": "11.14.0"
   },
   "description": "Express mysql backend",
   "main": "index.js",
