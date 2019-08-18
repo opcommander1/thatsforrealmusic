@@ -1,4 +1,4 @@
-let con = require('../modules/config')
+let conPool = require('../modules/config')
 let bcrypt = require('bcrypt')
 let passport = require('passport')
 const jwt = require('jsonwebtoken')
@@ -30,7 +30,7 @@ function jwtSignUser(user) {
 
      try {
        //check user email in the database and return result
-      con.query("SELECT email, username FROM Signup WHERE email = ?OR username = ?", [data[2], data[3]], (err, result, fields) => {
+      conPool.query("SELECT email, username FROM Signup WHERE email = ?OR username = ?", [data[2], data[3]], (err, result, fields) => {
          //console.log(result.length)
          //check to see if result not null
          if (result[0]) {
@@ -51,11 +51,11 @@ function jwtSignUser(user) {
           //encrypt user password and store user hash password
           //in database
           bcrypt.hash(data[4], saltRounds, function(err, hash){
-            con.query('INSERT INTO Signup (first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)', [data[0], data[1], data[2], data[3], hash],
+            conPool.query('INSERT INTO Signup (first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)', [data[0], data[1], data[2], data[3], hash],
           (err, fields) => { 
             if(err) throw err
 
-            con.query('SELECT LAST_INSERT_ID() as user_id', function(err, results, fields){
+            conPool.query('SELECT LAST_INSERT_ID() as user_id', function(err, results, fields){
               if (err) throw err
 
               const user_id = results[0];
@@ -88,7 +88,7 @@ function jwtSignUser(user) {
 
     try {
       //check username in the database and return result
-      con.query("SELECT id, username, password FROM Signup WHERE username = ?", [loginData[0]], (err, result, fields) => { 
+      conPool.query("SELECT id, username, password FROM Signup WHERE username = ?", [loginData[0]], (err, result, fields) => { 
         // console.log(result)
         //check to see if there is results 
         if(result[0]) {
@@ -144,7 +144,7 @@ function jwtSignUser(user) {
 
     try {
       //search to see if username is in the database
-      con.query("SELECT id, username, password FROM Signup WHERE username = ?", [updatedata[0]], (err, result, field) => {
+      conPool.query("SELECT id, username, password FROM Signup WHERE username = ?", [updatedata[0]], (err, result, field) => {
         // console.log(result)
         //check if result are return
         if(result.length <= 0 || "undefined" == result.length){
@@ -154,7 +154,7 @@ function jwtSignUser(user) {
           //Update user password, add hash before updating the database
         } else if (result.length > 0){
           bcrypt.hash(updatedata[1], saltRounds, function(err, hash){
-            con.query("UPDATE Signup SET password = ? WHERE id = ?", [hash, result[0].id], function(err, result){
+            conPool.query("UPDATE Signup SET password = ? WHERE id = ?", [hash, result[0].id], function(err, result){
               if (err) throw err
               res.send({
                 msg: "Success"
