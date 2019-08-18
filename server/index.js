@@ -16,7 +16,7 @@ let passport = require('passport')
 //express will use the build dist production folder to display app
 app.use(express.static(__dirname + "/dist/"));
 
-//Avoid 404 error with signal page application
+//Avoid 404 error with signal page application of vue
 app.get(/.*/, function(req, res) {
   res.sendFile(__dirname + "/dist/index.html");
 });
