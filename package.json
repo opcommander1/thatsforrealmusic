@@ -7,7 +7,7 @@
   "description": "Express mysql backend",
   "main": "index.js",
   "scripts": {
-    
+    "start": "node server/index.js",
     "dev": "nodemon server/index.js"
   },
   "repository": {
