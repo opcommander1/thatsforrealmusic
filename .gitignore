@@ -1,7 +1,7 @@
 node_modules
-# client
+client
 # dist
 
 #server config file
-config.js
-db.js
+# config.js
+# db.js
