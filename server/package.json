@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/opcommander1/thatsforrealmusic#readme",
   "dependencies": {
-    "@hapi/joi": "^15.0.3",
+    "@hapi/joi": "^15.1.1",
     "@types/hapi__joi": "^15.0.1",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
